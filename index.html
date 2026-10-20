@@ -1,0 +1,2724 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cariDOit | Explore Your Next Step</title>
+
+<style>
+:root {
+  --blue: #1769d2;
+  --navy: #12356b;
+  --orange: #ff8b36;
+  --bg: #f5f8fd;
+  --text: #172b4d;
+  --muted: #64748b;
+  --border: #DFE7F2;
+  --soft-blue: #EAF1FA;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+button, input, select { font: inherit; }
+button, a { cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+.container { width: 92%; max-width: 1100px; margin: auto; }
+
+header {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 25px;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.logo img {
+  width: 150px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav a { font-size: 14px; font-weight: bold; color: #536580; }
+nav a:hover { color: var(--blue); }
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-weight: bold;
+}
+.primary { background: var(--blue); color: white; }
+.secondary { background: white; border: 1px solid #d4deeb; color: var(--navy); }
+.orange { background: var(--orange); color: #321b0b; }
+
+.hero {
+  padding: 65px 0;
+  background: linear-gradient(120deg, #eaf3ff, white);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 30px;
+  align-items: center;
+}
+.tag {
+  color: var(--blue);
+  background: #dcecff;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.1; }
+h2 { line-height: 1.25; }
+.highlight { color: var(--blue); }
+p { color: var(--muted); }
+.hero p { font-size: 18px; }
+.hero-card, .card, .panel {
+  background: white;
+  padding: 23px;
+  border: 1px solid #e1e8f2;
+  border-radius: 18px;
+}
+.hero-card { box-shadow: 0 15px 40px #12356b12; }
+.hero-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e8edf5;
+}
+.hero-item:last-child { border: 0; }
+.section { padding: 55px 0; }
+.section-title { text-align: center; margin-bottom: 30px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+.grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+/* INTERAKSI KARTU DAN TOMBOL */
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(16, 43, 80, .10);
+}
+
+button,
+.btn,
+.ecosystem-btn,
+.home-hero-btn {
+  transition: transform .2s ease, box-shadow .2s ease,
+              background-color .2s ease;
+}
+
+button:hover,
+.btn:hover,
+.ecosystem-btn:hover,
+.home-hero-btn:hover {
+  transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #E5AD55;
+  outline-offset: 3px;
+}
+
+.icon { font-size: 28px; }
+.card h3 { margin-bottom: 7px; }
+.card p { font-size: 14px; }
+
+.link {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--blue);
+  font-weight: bold;
+}
+.band {
+  padding: 30px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: white;
+}
+.band p { color: #d3def0; }
+.page { display: none; padding: 38px 0 65px; min-height: 65vh; }
+.page.active { display: block; }
+.page-head {
+  background: linear-gradient(120deg, #eaf3ff, #fff5e9);
+  border: 1px solid #e0eafa;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 22px;
+}
+.page-head h1 { font-size: 38px; margin: 12px 0; }
+.panel { margin-bottom: 17px; }
+.notice {
+  padding: 14px;
+  background: #fff5e8;
+  border: 1px solid #ffdfbd;
+  border-radius: 12px;
+  font-size: 14px;
+}
+.form-field { margin: 13px 0; }
+.form-field label { display: block; font-weight: bold; margin-bottom: 5px; }
+.form-field input, .form-field select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #d4deeb;
+  border-radius: 9px;
+}
+.search { display: flex; gap: 10px; margin-bottom: 18px; }
+.search input { flex: 1; min-width: 0; padding: 11px; border: 1px solid #d4deeb; border-radius: 9px; }
+.chat-box { background: white; border: 1px solid #e1e8f2; border-radius: 16px; overflow: hidden; }
+.chat-title { padding: 15px; background: #eaf3ff; font-weight: bold; }
+.messages { height: 250px; overflow: auto; padding: 15px; }
+.message { padding: 10px 13px; background: #eef3f9; border-radius: 12px; margin-bottom: 10px; width: fit-content; max-width: 85%; }
+.message.mine { background: #dcecff; margin-left: auto; }
+.chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #e1e8f2; }
+.chat-form input { flex: 1; min-width: 0; padding: 10px; border: 1px solid #d4deeb; border-radius: 9px; }
+footer { background: #0e2850; color: white; padding: 30px 0; }
+footer p, footer a { color: #c8d6e9; font-size: 14px; }
+footer a { display: block; margin: 6px 0; }
+.hidden { display: none !important; }
+
+@media(max-width: 800px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .grid-four { grid-template-columns: repeat(2, 1fr); }
+  .nav { padding: 12px 0; }
+}
+@media(max-width: 600px) {
+  .grid, .grid-four { grid-template-columns: 1fr; }
+  nav { gap: 10px; }
+  nav a { font-size: 12px; }
+  .hero { padding: 40px 0; }
+  .page-head h1 { font-size: 32px; }
+}
+
+
+
+.logo img {
+  width: 150px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== CASHFLOW QUADRANT: PERAPIAN LAYOUT ===== */
+
+#ebsi .container {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto;
+}
+
+#ebsi .page-head {
+  margin-bottom: 28px;
+}
+
+#ebsi .section {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+#ebsi .panel {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 28px;
+  border-radius: 18px;
+  overflow-wrap: anywhere;
+}
+
+#ebsi h1,
+#ebsi h2,
+#ebsi h3 {
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+#ebsi p,
+#ebsi li {
+  line-height: 1.75;
+}
+
+#ebsi .grid-four {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+#ebsi .card {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  text-align: left;
+  padding: 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#ebsi .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(14, 40, 80, 0.10);
+}
+
+#ebsi #ebsiDetail {
+  scroll-margin-top: 24px;
+}
+
+#ebsi #ebsiText h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+#ebsi #ebsiText p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+#ebsi #ebsiText ul {
+  padding-left: 24px;
+}
+
+#ebsi #ebsiText li {
+  margin-bottom: 6px;
+}
+
+#ebsi .panel table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#ebsi .panel th,
+#ebsi .panel td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+#ebsi .panel th {
+  background: #f1f6fd;
+}
+
+@media (max-width: 600px) {
+  #ebsi .container {
+    width: calc(100% - 24px);
+  }
+
+  #ebsi .grid-four {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #ebsi .panel,
+  #ebsi .card {
+    padding: 18px;
+  }
+
+  #ebsi h1 {
+    font-size: 28px;
+  }
+
+  #ebsi h2 {
+    font-size: 22px;
+  }
+
+  #ebsi .panel th,
+  #ebsi .panel td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}
+
+
+.cashflow-illustration {
+  width: 100%;
+  max-width: 900px;
+  margin: 28px auto 36px;
+  text-align: center;
+}
+
+.cashflow-illustration .image-caption {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #17365d;
+}
+
+.cashflow-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  border: 1px solid #dbe5f2;
+  border-radius: 10px;
+  background: #fff;
+  color: #17365d;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-home:hover {
+  background: #eef5ff;
+}
+
+
+/* Dropdown menu pada header */
+.nav-dropdown {
+  position: relative;
+  color: #536580;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.nav-dropdown summary {
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary::after {
+  content: " ▾";
+}
+
+.nav-dropdown summary {
+  padding: 9px 11px;
+  border-radius: 8px;
+  transition: background .2s ease, color .2s ease;
+}
+
+.nav-dropdown summary:hover,
+.nav-dropdown[open] summary {
+  color: var(--blue);
+  background: var(--soft-blue);
+}
+
+.dropdown-content a {
+  transition: background .2s ease, color .2s ease;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px #12356b18;
+  z-index: 100;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 12px;
+  color: #536580;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background: #eaf3ff;
+  color: var(--blue);
+}
+
+@media (max-width: 800px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .dropdown-content {
+    left: auto;
+    right: 0;
+  }
+}
+
+/* ===== BERANDA cariDOit ===== */
+.home-hero {
+  padding: 64px 38px;
+  margin-bottom: 34px;
+  border-radius: 22px;
+  color: #fff;
+  background: linear-gradient(130deg, #102b50, #1d4c7c);
+}
+
+.home-eyebrow {
+  display: inline-block;
+  color: #d99b45;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+}
+
+.home-hero h1 {
+  max-width: 750px;
+  margin: 14px 0;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.15;
+}
+
+.home-hero p {
+  max-width: 650px;
+  color: #e1eaf5;
+  line-height: 1.8;
+}
+
+.home-hero-btn,
+.ecosystem-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 18px;
+  border-radius: 9px;
+  background: #173e68;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .2s, background .2s;
+}
+
+.home-hero-btn {
+  background: #f2b65c;
+  color: #102b50;
+}
+
+.home-hero-btn:hover,
+.ecosystem-btn:hover {
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+.home-section {
+  margin: 44px 0;
+}
+
+.home-heading {
+  max-width: 750px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.home-heading h2,
+.financial-system h2,
+.foundation-section h2 {
+  margin: 10px 0;
+  color: #17345f;
+  font-size: clamp(25px, 3vw, 34px);
+}
+
+.home-heading p,
+.system-intro {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.ecosystem-card {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(15, 39, 70, .05);
+}
+
+.ecosystem-visual {
+  height: 100px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.ecosystem-visual img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.atur-visual:hover img {
+  transform: scale(1.12);
+}
+
+.atur-visual {
+  height: 180px;
+  min-height: 180px;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cci-visual {
+  height: 180px;
+  min-height: 180px;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cci-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cci-visual:hover img {
+  transform: scale(1.12);
+}
+
+
+.academy-visual {
+  height: 180px;
+  min-height: 180px;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.academy-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.academy-visual:hover img {
+  transform: scale(1.12);
+}
+
+.ecosystem-symbol {
+  color: #17345f;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.ecosystem-body {
+  padding: 24px;
+}
+
+.ecosystem-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.ecosystem-body h3,
+.feature-card h3,
+.system-card h3 {
+  margin: 10px 0;
+  color: #17345f;
+}
+
+.ecosystem-body p,
+.feature-card p,
+.system-card p,
+.foundation-section p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.ecosystem-btn {
+  background: #17345f;
+}
+
+.academy-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(180px, .7fr) 1.3fr;
+}
+
+.academy-card .ecosystem-visual {
+  height: 100%;
+}
+
+.academy-card .ecosystem-body {
+  align-self: center;
+}
+
+.features-section {
+  padding: 38px 28px;
+  border-radius: 20px;
+  background: #f6f8fc;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.feature-card {
+  padding: 21px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.feature-number {
+  color: #d99b45;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.financial-system {
+  margin: 44px 0;
+  padding: 36px 28px;
+  border-radius: 20px;
+  background: #edf3fa;
+  text-align: center;
+}
+
+.financial-system > p {
+  max-width: 800px;
+  margin: 12px auto;
+  color: #52657c;
+  line-height: 1.8;
+}
+
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  margin: 28px 0;
+  text-align: left;
+}
+
+.system-card {
+  padding: 20px;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.financial-tagline {
+  margin: 28px 0 12px;
+  color: #17345f;
+  line-height: 1.7;
+}
+
+.mission-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.mission-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.mission-item > span {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #e8effa;
+  color: #17345f;
+  font-weight: 800;
+}
+
+.mission-item p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.prove-section {
+  padding: 35px 25px;
+  border-radius: 18px;
+  background: #f6f8fc;
+}
+
+.foundation-section {
+  padding: 32px;
+  border-left: 4px solid #d99b45;
+  border-radius: 12px;
+  background: #fffaf1;
+}
+
+.foundation-section p {
+  max-width: 900px;
+}
+
+.home-cta {
+  margin: 44px 0 20px;
+  padding: 42px 25px;
+  border-radius: 20px;
+  background: #102b50;
+  color: #fff;
+  text-align: center;
+}
+
+.home-cta h2 {
+  margin: 12px 0;
+  font-size: clamp(25px, 4vw, 34px);
+}
+
+.home-cta > p {
+  color: #e1eaf5;
+  line-height: 1.8;
+}
+
+.home-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.home-cta-actions a {
+  display: inline-block;
+  padding: 12px 19px;
+  border: 1px solid #fff;
+  border-radius: 9px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.home-cta-actions a:first-child {
+  border-color: #f2b65c;
+  background: #f2b65c;
+  color: #102b50;
+}
+
+@media (max-width: 900px) {
+  .features-grid,
+  .system-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .home-hero {
+    padding: 38px 23px;
+  }
+
+  .ecosystem-grid,
+  .features-grid,
+  .system-grid,
+  .mission-list {
+    grid-template-columns: 1fr;
+  }
+
+  .academy-card {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .academy-card .ecosystem-visual {
+    min-height: 125px;
+  }
+
+  .features-section,
+  .financial-system {
+    padding: 26px 18px;
+  }
+
+  .ecosystem-body,
+  .foundation-section {
+    padding: 22px;
+  }
+}
+.ecosystem-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ecosystem-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Kotak pengalaman dan portofolio */
+#internForm textarea[name="portofolio"] {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 14px 16px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #172b4d;
+  background: #fff;
+  border: 1px solid #d5deeb;
+  border-radius: 12px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#internForm textarea[name="portofolio"]:focus {
+  border-color: #2167d5;
+  box-shadow: 0 0 0 3px rgba(33, 103, 213, 0.12);
+}
+
+#internForm textarea[name="portofolio"]::placeholder {
+  color: #8793a5;
+}
+
+/* Jarak antarbagian di halaman Business Opportunity */
+#bisnis .panel {
+  margin-bottom: 28px;
+}
+
+#bisnis .grid {
+  gap: 20px;
+}
+
+#bisnis .notice {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+#bisnis .panel > h2 {
+  margin-bottom: 20px;
+}
+
+#bisnis .panel > p {
+  line-height: 1.7;
+}
+
+.vision-intro,
+.vision-image-panel {
+  margin-bottom: 24px;
+}
+
+.vision-intro h2,
+.vision-image-panel h2 {
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.vision-intro p,
+.vision-image-panel p {
+  line-height: 1.8;
+}
+
+.vision-main-image {
+  display: block;
+  width: 100%;
+  max-width: 950px;
+  height: auto;
+  margin: 24px auto 8px;
+  border-radius: 14px;
+  border: 1px solid #e1e8f2;
+}
+
+/* ===== TAMPILAN LAYAR BIRU VISION ===== */
+.vision-label {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #eaf3ff;
+  color: #1769d2;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.vision-components,
+.vision-income {
+  margin: 25px 0 28px;
+  padding: 28px;
+}
+
+.vision-components h2,
+.vision-income h2 {
+  margin-top: 14px;
+  color: #12356b;
+}
+
+.vision-component-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.vision-component-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid #dce6f3;
+  border-radius: 15px;
+  background: #f8fbff;
+  color: #12356b;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vision-component-card:hover,
+.vision-component-card.active {
+  border-color: #1769d2;
+  background: #eaf3ff;
+}
+
+.vision-component-icon {
+  font-size: 26px;
+}
+
+.vision-component-card small {
+  color: #64748b;
+}
+
+.vision-component-detail {
+  margin-top: 18px;
+  padding: 22px;
+  border-left: 4px solid #1769d2;
+  border-radius: 14px;
+  background: #f5f8fd;
+}
+
+.vision-component-detail h3 {
+  margin-top: 0;
+  color: #12356b;
+}
+
+.vision-component-detail p {
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+
+.vision-year-tabs {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 9px;
+  margin: 24px 0;
+}
+
+.vision-year {
+  padding: 11px 5px;
+  border: 1px solid #dce6f3;
+  border-radius: 10px;
+  background: white;
+  color: #12356b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.vision-year:hover,
+.vision-year.active {
+  background: #1769d2;
+  border-color: #1769d2;
+  color: white;
+}
+
+.vision-income-result {
+  padding: 30px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #102b50, #1769d2);
+  color: white;
+}
+
+.vision-income-result span {
+  color: #dcecff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.vision-income-result h3 {
+  margin: 12px 0;
+  color: white;
+  font-size: clamp(28px, 4vw, 42px);
+  overflow-wrap: anywhere;
+}
+
+.vision-income-result p {
+  margin-bottom: 0;
+  color: #e3edff;
+}
+
+@media (max-width: 650px) {
+  .vision-components,
+  .vision-income {
+    padding: 19px;
+  }
+
+  .vision-component-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-year-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .vision-income-result {
+    padding: 22px;
+  }
+}
+
+/* FORMULIR */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(36, 87, 167, .12);
+  outline: none;
+}
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-field label {
+  color: var(--navy);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home" onclick="showPage('home'); return false;">
+      <img src="images/logo-caridoit.png" alt="Logo cariDOit">
+    </a>
+
+    <nav>
+      <a href="#home" onclick="showPage('home'); return false;">
+        Beranda
+      </a>
+
+      <details class="nav-dropdown">
+        <summary>Komunitas</summary>
+        <div class="dropdown-content">
+          <a href="https://aturdoit.com/community" target="_blank" rel="noopener">
+            Cashflow Club Indonesia (CCI)
+          </a>
+          <a href="https://aturdoit.com" target="_blank" rel="noopener">
+            aturDOit
+          </a>
+          <a href="#academy" onclick="showHomeSection('academy'); return false;">
+            aturDOit Academy
+          </a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Vision</summary>
+        <div class="dropdown-content">
+          <a href="#ebsi" onclick="showPage('ebsi'); return false;">
+            Cashflow Quadrant
+          </a>
+          <a href="#vbs" onclick="showPage('vbs'); return false;">
+            Business System
+          </a>
+          <a href="#layar" onclick="showPage('layar'); return false;">
+            Layar Biru Vision
+          </a>
+          <a href="#bsp" onclick="showPage('bsp'); return false;">
+            Ringkasan BSP
+          </a>
+          <a href="#jalur" onclick="showPage('jalur'); return false;">
+            Pilih Jalur
+          </a>
+          <a href="#agen" onclick="showPage('agen'); return false;">
+            Cari Agen
+          </a>
+          <a href="#chat" onclick="showPage('chat'); return false;">
+            Chat Agen
+          </a>
+          <a href="#intern" onclick="showPage('intern'); return false;">
+            Informasi Magang
+          </a>
+        </div>
+      </details>
+
+      <a href="#tentang" onclick="showHomeSection('tentang'); return false;">
+        Tentang Kami
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="page active">
+  
+<!-- BERANDA cariDOit -->
+<div class="home-hero">
+  <span class="home-eyebrow">DOit CORPORATION</span>
+  <h1>Building a Better Financial Future</h1>
+  <p>
+    Mengenal ekosistem digital finansial yang menghubungkan
+    individu, profesional, komunitas, dan berbagai peluang
+    untuk bertumbuh bersama.
+  </p>
+  <a href="#ecosystem"
+     class="home-hero-btn"
+     onclick="showHomeSection('ecosystem'); return false;">
+     Jelajahi Ekosistem →
+  </a>
+</div>
+
+<!-- EKOSISTEM DOit -->
+<div id="ecosystem" class="home-section">
+  <div class="home-heading">
+    <span class="home-eyebrow">DISCOVER OUR ECOSYSTEM</span>
+    <h2>Kenali Ekosistem DOit</h2>
+    <p>
+      Temukan komunitas dan platform yang mendukung perjalanan
+      finansial serta pengembangan diri Anda.
+    </p>
+  </div>
+
+  <div class="ecosystem-grid">
+
+    <!-- CCI -->
+    <article class="ecosystem-card">
+      <div class="ecosystem-visual cci-visual">
+        <img src="images/logo-cci.png" alt="Logo CCI">
+      </div>
+      <div class="ecosystem-body">
+        <span class="ecosystem-label">COMMUNITY</span>
+        <h3>Cashflow Club Indonesia</h3>
+        <p>
+          Cashflow Club Indonesia (CCI) adalah komunitas yang
+          mempertemukan individu-individu yang memiliki semangat
+          untuk terus belajar, bertumbuh, dan membangun masa depan
+          finansial yang lebih baik.
+        </p>
+        <p>
+          Melalui edukasi, networking, dan praktik nyata, CCI
+          menjadi tempat untuk berkembang bersama menuju
+          kehidupan yang lebih berkualitas.
+        </p>
+        <a
+          href="https://aturdoit.com/community"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ecosystem-btn">
+          Kenali CCI <span>→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- aturDOit -->
+    <article class="ecosystem-card">
+      <div class="ecosystem-visual atur-visual">
+        <img src="images/logo-aturdoit.png" alt="Logo aturDOit">
+      </div>
+      <div class="ecosystem-body">
+        <span class="ecosystem-label">FINANCIAL PLATFORM</span>
+        <h3>aturDOit</h3>
+        <p>
+          aturDOit adalah platform digital yang dirancang untuk
+          membantu setiap orang mengelola keuangan secara lebih
+          terstruktur, memahami kondisi finansial, serta mengambil
+          keputusan yang lebih baik untuk mencapai tujuan keuangan.
+        </p>
+        <p>
+          Lebih dari sekadar aplikasi pencatatan keuangan,
+          aturDOit adalah partner yang mendampingi perjalanan
+          Anda menuju kemandirian finansial.
+        </p>
+        <a
+          href="https://aturdoit.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ecosystem-btn">
+          Jelajahi aturDOit <span>→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- aturDOit Academy -->
+    <article id="academy" class="ecosystem-card academy-card">
+      <div class="ecosystem-visual academy-visual">
+         <img src="images/logo-aturdoit academy.png" alt="Logo aturDOit Academy">
+      </div>
+      <div class="ecosystem-body">
+        <span class="ecosystem-label">FINANCIAL EDUCATION</span>
+        <h3>aturDOit Academy</h3>
+        <p>
+          Bagian edukasi dalam ekosistem aturDOit yang mendukung
+          pembelajaran finansial melalui materi perencanaan
+          keuangan, investasi, proteksi, perpajakan, pensiun,
+          hingga legacy planning.
+        </p>
+        <p>
+          Pengalaman belajar juga didukung oleh edukasi melalui
+          aturDOit Academy dan komunitas CCI.
+        </p>
+        <a
+          href="https://aturdoit.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ecosystem-btn">
+          Pelajari aturDOit <span>→</span>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- FITUR aturDOit -->
+<div class="home-section features-section">
+  <div class="home-heading">
+    <span class="home-eyebrow">ONE APP FOR YOUR FINANCIAL JOURNEY</span>
+    <h2>Key Features of aturDOit</h2>
+    <p>
+      Berbagai fitur untuk membantu mengelola dan mengembangkan
+      kehidupan finansial Anda.
+    </p>
+  </div>
+
+  <div class="features-grid">
+    <article class="feature-card">
+      <span class="feature-number">01</span>
+      <h3>Cashflow Management</h3>
+      <p>
+        Catat setiap pemasukan dan pengeluaran untuk membangun
+        kebiasaan keuangan yang sehat.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">02</span>
+      <h3>Financial Health Analysis</h3>
+      <p>
+        Pahami kondisi keuangan melalui analisis, rasio keuangan,
+        dan Financial Score yang mudah dipahami.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">03</span>
+      <h3>Asset &amp; Liability Management</h3>
+      <p>
+        Kelola aset, investasi, utang, dan piutang dalam satu
+        dashboard yang terintegrasi.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">04</span>
+      <h3>Financial Goal Planning</h3>
+      <p>
+        Tetapkan target keuangan dan pantau progres pencapaiannya
+        secara bertahap.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">05</span>
+      <h3>Financial Advisor Marketplace</h3>
+      <p>
+        Terhubung dengan para profesional untuk mendapatkan
+        konsultasi sesuai kebutuhan Anda.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">06</span>
+      <h3>Learning Center</h3>
+      <p>
+        Pelajari financial planning, investasi, proteksi,
+        perpajakan, pensiun, hingga legacy planning.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">07</span>
+      <h3>Community &amp; Challenge</h3>
+      <p>
+        Bertumbuh bersama komunitas melalui challenge,
+        aktivitas, dan edukasi yang berkelanjutan.
+      </p>
+    </article>
+
+    <article class="feature-card">
+      <span class="feature-number">08</span>
+      <h3>Financial Journey</h3>
+      <p>
+        Pantau perkembangan kondisi keuangan dari waktu ke waktu
+        menuju Financial Independence.
+      </p>
+    </article>
+  </div>
+</div>
+
+<!-- FINANCIAL OPERATING SYSTEM -->
+<div class="financial-system">
+  <span class="home-eyebrow">YOUR FINANCIAL JOURNEY STARTS HERE</span>
+  <h2>Lebih dari Sekadar Pencatatan Cashflow</h2>
+  <p class="system-intro">
+    Setiap perjalanan menuju masa depan finansial yang lebih baik
+    dimulai dari satu langkah sederhana, yaitu mengenali kondisi
+    keuangan Anda hari ini.
+  </p>
+  <p>
+    aturDOit bukan sekadar aplikasi pencatat cashflow,
+    tetapi sebuah <strong>Financial Operating System</strong>.
+  </p>
+
+  <div class="system-grid">
+    <article class="system-card">
+      <h3>01. Manage</h3>
+      <p>Pencatatan dan pengelolaan keuangan.</p>
+    </article>
+    <article class="system-card">
+      <h3>02. Analyze</h3>
+      <p>Financial Health, Financial Score, dan analisis rasio.</p>
+    </article>
+    <article class="system-card">
+      <h3>03. Learn</h3>
+      <p>Edukasi melalui aturDOit Academy dan CCI.</p>
+    </article>
+    <article class="system-card">
+      <h3>04. Grow</h3>
+      <p>
+        Konsultasi dengan advisor, komunitas, serta peluang
+        pengembangan karier.
+      </p>
+    </article>
+  </div>
+
+  <h3 class="financial-tagline">
+    Manage Better. Grow Smarter. Achieve Financial Independence.
+  </h3>
+  <a
+    href="https://aturdoit.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="ecosystem-btn">
+    Kunjungi aturDOit →
+  </a>
+</div>
+
+<!-- MISI DOit CORPORATION -->
+<div class="home-section mission-section">
+  <div class="home-heading">
+    <span class="home-eyebrow">DOit CORPORATION</span>
+    <h2>Our Mission</h2>
+    <p>
+      Misi DOit Corporation dalam membangun ekosistem digital
+      finansial global.
+    </p>
+  </div>
+
+  <div class="mission-list">
+    <article class="mission-item">
+      <span>01</span>
+      <p>
+        Membangun platform digital global yang membantu masyarakat
+        memperoleh, mengelola, dan mengembangkan kehidupan finansialnya.
+      </p>
+    </article>
+
+    <article class="mission-item">
+      <span>02</span>
+      <p>
+        Mengembangkan ekosistem yang menghubungkan individu,
+        profesional, komunitas, institusi, dan dunia usaha melalui
+        teknologi yang inovatif.
+      </p>
+    </article>
+
+    <article class="mission-item">
+      <span>03</span>
+      <p>
+        Memberdayakan mentor, advisor, agent, dan profesional untuk
+        memberikan layanan yang berkualitas dengan dukungan
+        teknologi dan AI.
+      </p>
+    </article>
+
+    <article class="mission-item">
+      <span>04</span>
+      <p>
+        Menciptakan peluang ekonomi yang lebih luas melalui platform
+        digital yang mendukung karier, bisnis, investasi,
+        dan kewirausahaan.
+      </p>
+    </article>
+
+    <article class="mission-item">
+      <span>05</span>
+      <p>
+        Menyediakan solusi yang aman, transparan, dan sesuai dengan
+        regulasi di setiap negara tempat DOit Corporation beroperasi.
+      </p>
+    </article>
+
+    <article class="mission-item">
+      <span>06</span>
+      <p>
+        Membangun perusahaan digital global yang efisien,
+        berbasis data, dan berorientasi pada inovasi berkelanjutan.
+      </p>
+    </article>
+
+    <article class="mission-item">
+      <span>07</span>
+      <p>
+        Menghasilkan nilai ekonomi yang berkelanjutan untuk mendukung
+        dampak sosial melalui kasihDOit Foundation, sehingga
+        pertumbuhan bisnis dapat berjalan seiring dengan kontribusi
+        nyata bagi masyarakat.
+      </p>
+    </article>
+  </div>
+</div>
+
+<!-- PROVE / FINANCIAL LIFE ECOSYSTEM -->
+<div class="home-section prove-section">
+  <div class="home-heading">
+    <span class="home-eyebrow">DOit CORPORATION</span>
+    <h2>PROVE — Financial Life Ecosystem</h2>
+    <h3>Global Digital Financial Ecosystem Company</h3>
+    <p>
+      DOit Corporation memiliki misi memberdayakan masyarakat
+      melalui lima tahapan kehidupan finansial.
+    </p>
+  </div>
+</div>
+
+<!-- KASIHDOit FOUNDATION -->
+<div class="home-section foundation-section">
+  <span class="home-eyebrow">SOCIAL IMPACT</span>
+  <h2>kasihDOit Foundation</h2>
+  <p>
+    kasihDOit Foundation adalah organisasi nirlaba yang dibentuk
+    untuk mengembalikan manfaat dari pertumbuhan ekosistem DOit
+    kepada masyarakat melalui pendidikan, pemberdayaan ekonomi,
+    bantuan kemanusiaan, dan peningkatan literasi keuangan.
+  </p>
+</div>
+
+<!-- PENUTUP BERANDA -->
+<div class="home-cta">
+  <span class="home-eyebrow">EXPLORE THE DOit ECOSYSTEM</span>
+  <h2>Mulai Kenali Ekosistem DOit</h2>
+  <p>
+    Temukan komunitas, platform, dan peluang untuk belajar
+    serta bertumbuh bersama.
+  </p>
+  <div class="home-cta-actions">
+    <a href="https://aturdoit.com/community"
+       target="_blank" rel="noopener noreferrer">
+      Kunjungi CCI
+    </a>
+    <a href="https://aturdoit.com"
+       target="_blank" rel="noopener noreferrer">
+      Kunjungi aturDOit
+    </a>
+  </div>
+</div>
+</section>
+
+<section id="ebsi" class="page">
+  <div class="container">
+    <div class="page-head">
+      <span class="tag">LEARN / CASHFLOW QUADRANT</span>
+      <h1>Cashflow Quadrant</h1>
+      <p>
+        Pahami empat cara seseorang memperoleh penghasilan,
+        mengenali karakteristik setiap kuadran, dan menentukan
+        langkah finansial sesuai tujuanmu.
+      </p>
+    </div>
+
+    <div class="panel section">
+      <h2>Apa Itu Cashflow Quadrant?</h2>
+      <p>
+        Cashflow Quadrant adalah konsep yang diperkenalkan oleh
+        Robert T. Kiyosaki dalam bukunya Rich Dad's Cashflow Quadrant.
+        Konsep ini membagi sumber penghasilan menjadi empat kuadran:
+        Employee (E), Self-Employed (S), Business Owner (B), dan
+        Investor (I).
+      </p>
+      <p>
+        Setiap kuadran memiliki cara kerja, sumber penghasilan,
+        tanggung jawab, serta risiko yang berbeda. Seseorang juga
+        dapat memperoleh penghasilan dari lebih dari satu kuadran.
+      </p>
+    </div>
+
+    <div class="cashflow-illustration">
+      <p class="image-caption">Konsep Cashflow Quadrant</p>
+      <img
+        src="images/cashflow-quadrant.png"
+        alt="Konsep Cashflow Quadrant: Employee, Business Owner, Self-Employed, dan Investor"
+      >
+    </div>
+
+    <div class="section">
+      <h2>Kenali Empat Kuadran</h2>
+      <p>Pilih kartu untuk mempelajari setiap kuadran lebih lanjut.</p>
+
+      <div class="grid-four">
+        <button class="card" onclick="detailEBSI('E')">
+          <div class="icon">💼</div>
+          <h3>E — Employee</h3>
+          <p>Mendapatkan penghasilan dengan bekerja untuk orang lain.</p>
+          <span class="tag">Lihat Detail →</span>
+        </button>
+
+        <button class="card" onclick="detailEBSI('S')">
+          <div class="icon">🧑‍💻</div>
+          <h3>S — Self-Employed</h3>
+          <p>Bekerja mandiri dengan mengandalkan keahlian sendiri.</p>
+          <span class="tag">Lihat Detail →</span>
+        </button>
+
+        <button class="card" onclick="detailEBSI('B')">
+          <div class="icon">🏢</div>
+          <h3>B — Business Owner</h3>
+          <p>Membangun bisnis yang didukung sistem dan tim.</p>
+          <span class="tag">Lihat Detail →</span>
+        </button>
+
+        <button class="card" onclick="detailEBSI('I')">
+          <div class="icon">📈</div>
+          <h3>I — Investor</h3>
+          <p>Menggunakan modal untuk memiliki aset investasi.</p>
+          <span class="tag">Lihat Detail →</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="ebsiDetail" class="panel section hidden">
+      <h2 id="ebsiTitle"></h2>
+      <div id="ebsiText"></div>
+      <button class="btn primary" onclick="closeEBSI()">
+        Tutup Detail
+      </button>
+    </div>
+
+    <div class="panel section">
+      <h2>Perbandingan Empat Kuadran</h2>
+      <p>Berikut gambaran umum perbedaan sumber penghasilannya.</p>
+
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;text-align:left">
+          <thead>
+            <tr>
+              <th style="padding:12px;border-bottom:1px solid #ddd">Kuadran</th>
+              <th style="padding:12px;border-bottom:1px solid #ddd">Sumber Penghasilan</th>
+              <th style="padding:12px;border-bottom:1px solid #ddd">Fokus Utama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:12px;border-bottom:1px solid #ddd">E — Employee</td>
+              <td style="padding:12px;border-bottom:1px solid #ddd">Gaji atau upah</td>
+              <td style="padding:12px;border-bottom:1px solid #ddd">Pekerjaan dan karier</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border-bottom:1px solid #ddd">S — Self-Employed</td>
+              <td style="padding:12px;border-bottom:1px solid #ddd">Jasa atau pekerjaan sendiri</td>
+              <td style="padding:12px;border-bottom:1px solid #ddd">Keahlian dan pekerjaan mandiri</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border-bottom:1px solid #ddd">B — Business Owner</td>
+              <td style="padding:12px;border-bottom:1px solid #ddd">Keuntungan bisnis</td>
+              <td style="padding:12px;border-bottom:1px solid #ddd">Sistem dan tim</td>
+            </tr>
+            <tr>
+              <td style="padding:12px">I — Investor</td>
+              <td style="padding:12px">Hasil investasi</td>
+              <td style="padding:12px">Aset dan pengelolaan modal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel section">
+      <h2>Bagaimana Memulai?</h2>
+      <ol>
+        <li>Kenali sumber penghasilanmu saat ini.</li>
+        <li>Tentukan tujuan karier dan keuanganmu.</li>
+        <li>Pelajari keterampilan, bisnis, atau instrumen investasi yang relevan.</li>
+        <li>Mulai dari langkah yang realistis sesuai kemampuan dan toleransi risiko.</li>
+      </ol>
+      <p>
+        Ingat, tidak ada satu kuadran yang otomatis paling baik untuk
+        semua orang. Setiap pilihan memiliki peluang, tanggung jawab,
+        dan risiko masing-masing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="vbs" class="page"><div class="container">
+  <div class="page-head"><span class="tag">VISION BUSINESS SYSTEM</span><h1>Vision Business System</h1><p>Halaman untuk mempelajari sistem bisnis berdasarkan materi resmi Vision.</p></div>
+  <div class="panel"><h2>Materi Vision Business System</h2><p>Tambahkan diagram, alur, video, penjelasan, dan FAQ yang benar-benar berasal dari pihak Vision.</p><div class="notice">Transkrip BSP yang dibagikan membahas perspektif karier, entrepreneurship, risiko bisnis, dan cash flow. Jangan menganggapnya sebagai dokumentasi teknis sistem Vision jika tidak menjelaskan sistem tersebut secara langsung.</div></div>
+</div></section>
+
+<section id="layar" class="page"><div class="container">
+  <div class="page-head"><span class="tag">LAYAR BIRU VISION</span><h1>Layar Biru Vision</h1><p>Halaman untuk menyusun materi Layar Biru yang sudah kamu terima.</p></div>
+  
+<!-- PENGENALAN LAYAR BIRU VISION -->
+<div class="panel vision-intro">
+  <span class="vision-label">MENGENAL VISION</span>
+  <h2>Apa Itu Layar Biru Vision?</h2>
+
+  <p>
+    Layar Biru Vision merupakan materi sistem bisnis yang
+    menggambarkan tahapan perkembangan bisnis dan proyeksi
+    income dalam perjalanan keagenan Vision.
+  </p>
+
+  <p>
+    Melalui materi ini, pengunjung dapat mengenal gambaran
+    perkembangan dari tahun ke tahun, komponen yang digunakan
+    dalam sistem bisnis, serta proyeksi income yang tercantum
+    dalam materi.
+  </p>
+</div>
+
+<!-- GAMBAR LAYAR BIRU VISION -->
+<div class="panel vision-image-panel">
+  <h2>Materi Layar Biru Vision</h2>
+  <p>
+    Berikut materi yang menjadi acuan penjelasan sistem bisnis
+    dan proyeksi income Vision.
+  </p>
+
+  <img
+    src="images/layar biru-vision.jpg"
+    alt="Materi Layar Biru Vision"
+    class="vision-main-image"
+  >
+</div> <!-- penutup vision-image-panel -->
+
+<!-- PENJELASAN KOMPONEN SISTEM BISNIS -->
+<div class="panel vision-components">
+  <span class="vision-label">MEMAHAMI SISTEM</span>
+  <h2>Memahami Komponen Layar Biru Vision</h2>
+  <p>
+    Bagian ini membantu pengunjung mengenali istilah yang muncul
+    dalam materi Layar Biru Vision. Pilih komponen untuk membaca
+    penjelasan singkatnya.
+  </p>
+
+  <div class="vision-component-grid">
+    <button class="vision-component-card active"
+      type="button" onclick="showVisionComponent('n')">
+      <span class="vision-component-icon">👥</span>
+      <strong>N</strong>
+      <small>Komponen N</small>
+    </button>
+
+    <button class="vision-component-card"
+      type="button" onclick="showVisionComponent('promosi')">
+      <span class="vision-component-icon">📈</span>
+      <strong>Promosi</strong>
+      <small>Tahapan promosi</small>
+    </button>
+
+    <button class="vision-component-card"
+      type="button" onclick="showVisionComponent('leader')">
+      <span class="vision-component-icon">🤝</span>
+      <strong>Calon Leader</strong>
+      <small>Komponen kepemimpinan</small>
+    </button>
+  </div>
+
+  <div class="vision-component-detail" id="visionComponentDetail">
+    <h3>Komponen N</h3>
+    <p>
+      Komponen N tercantum dalam materi Layar Biru Vision.
+      Arti dan cara perhitungannya perlu dikonfirmasi kepada
+      pihak Vision.
+    </p>
+  </div>
+</div>
+
+<!-- PROYEKSI INCOME INTERAKTIF -->
+<div class="panel vision-income">
+  <span class="vision-label">PROYEKSI TAHUNAN</span>
+  <h2>Proyeksi Income Tahun 1–7</h2>
+  <p>
+    Pilih tahun untuk melihat angka proyeksi yang tercantum
+    dalam materi Layar Biru Vision.
+  </p>
+
+  <div class="vision-year-tabs">
+    <button type="button" class="vision-year active"
+      onclick="showVisionYear(1)">Tahun 1</button>
+    <button type="button" class="vision-year"
+      onclick="showVisionYear(2)">Tahun 2</button>
+    <button type="button" class="vision-year"
+      onclick="showVisionYear(3)">Tahun 3</button>
+    <button type="button" class="vision-year"
+      onclick="showVisionYear(4)">Tahun 4</button>
+    <button type="button" class="vision-year"
+      onclick="showVisionYear(5)">Tahun 5</button>
+    <button type="button" class="vision-year"
+      onclick="showVisionYear(6)">Tahun 6</button>
+    <button type="button" class="vision-year"
+      onclick="showVisionYear(7)">Tahun 7</button>
+  </div>
+
+  <div class="vision-income-result">
+    <span id="visionIncomeYear">PROYEKSI TAHUN 1</span>
+    <h3 id="visionIncomeValue">Rp15 juta/bulan</h3>
+    <p id="visionIncomeDescription">
+      Angka proyeksi tahun pertama berdasarkan materi yang dibagikan.
+    </p>
+  </div>
+
+  <div class="notice">
+    Proyeksi bukan jaminan penghasilan. Hasil aktual dapat berbeda.
+    Satuan, asumsi, dan dasar perhitungan perlu dikonfirmasi
+    kepada pihak Vision.
+  </div>
+</div>
+</div></section>
+
+<section id="bsp" class="page"><div class="container">
+  <div class="page-head"><span class="tag">RINGKASAN BSP</span><h1>Karier, bisnis, dan arti kesuksesan</h1><p>Ringkasan tema dari transkrip BSP Juliana Parmadi yang kamu bagikan.</p></div>
+  <div class="grid">
+    <div class="card"><h3>🌱 Definisi sukses</h3><p>Kesuksesan bukan hanya uang dan jabatan, tetapi juga makna, kesejahteraan, dan fleksibilitas.</p></div>
+    <div class="card"><h3>🏢 Jalur corporate</h3><p>Corporate dapat memberi pengalaman dan networking. Perkembangan karier juga dipengaruhi sistem, anggaran, dan siklus promosi.</p></div>
+    <div class="card"><h3>🛠️ Tantangan bisnis</h3><p>Bisnis memiliki tanggung jawab terkait modal, people, operations, risiko, dan cash flow.</p></div>
+  </div>
+  <div class="panel section"><h2>Pesan utama</h2><p>Setiap jalur memiliki trade-off. Pelajari peluang, tanggung jawab, dan risikonya sebelum mengambil keputusan.</p></div>
+</div></section>
+
+<section id="jalur" class="page"><div class="container">
+  <div class="page-head"><span class="tag">PILIH JALUR</span><h1>Informasi yang sesuai untukmu</h1><p>Pilih status untuk membuka jalur informasi yang relevan. Kamu tetap bisa mengakses materi edukasi yang tersedia.</p></div>
+  <div class="grid">
+    <div class="card"><div class="icon">🎓</div><h2>Mahasiswa</h2><p>Pelajari informasi program intern, persyaratan, jadwal, dan proses pendaftaran berdasarkan arahan resmi Vision.</p><button class="btn primary" onclick="showPage('intern')">Lihat Jalur Intern</button></div>
+    <div class="card"><div class="icon">💼</div><h2>Bukan Mahasiswa</h2><p>Pelajari peluang bisnis agen asuransi melalui Vision dan Allianz sebelum memutuskan apakah ingin mengetahui lebih lanjut.</p><button class="btn primary" onclick="showPage('bisnis')">Business Opportunity</button></div>
+  </div>
+</div></section>
+
+
+<section id="intern" class="page">
+  <div class="container">
+
+    <!-- 1. INFORMASI PROGRAM MAGANG VISION -->
+    <div class="page-head">
+      <span class="tag">JALUR INTERN</span>
+      <h1>Program Magang Vision</h1>
+      <p>
+        Kenali pilihan posisi magang, benefit, persyaratan,
+        dan proses pendaftaran sebelum mengajukan minat.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Informasi Program</h2>
+      <p>
+        Program Magang Vision memberikan kesempatan bagi peserta
+        untuk mengembangkan kemampuan dan memperoleh pengalaman
+        melalui bidang yang sesuai dengan minat serta latar belakangnya.
+      </p>
+      <p>
+        Tersedia pilihan Business Executive, Web Developer,
+        dan UI/UX Designer dengan kriteria yang berbeda.
+      </p>
+    </div>
+
+    <!-- 2. PILIHAN POSISI MAGANG -->
+    <div class="panel" id="internPositions">
+      <h2>Pilihan Posisi Magang</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Business Executive</h3>
+          <p>
+            Terbuka untuk semua jurusan, tanpa pengalaman sebelumnya.
+          </p>
+          <button class="btn primary" type="button"
+            onclick="selectInternPosition('Business Executive')">
+            Pilih Posisi
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Web Developer</h3>
+          <p>
+            Untuk peserta berlatar belakang IT dan memiliki
+            pengalaman yang relevan.
+          </p>
+          <button class="btn primary" type="button"
+            onclick="selectInternPosition('Web Developer')">
+            Pilih Posisi
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>UI/UX Designer</h3>
+          <p>
+            Untuk peserta berlatar belakang IT dan memiliki
+            pengalaman yang relevan.
+          </p>
+          <button class="btn primary" type="button"
+            onclick="selectInternPosition('UI/UX Designer')">
+            Pilih Posisi
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BENEFIT MAGANG -->
+    <div class="panel">
+      <h2>Benefit Magang</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Sertifikat</h3>
+          <p>Mendapatkan sertifikat sesuai ketentuan program.</p>
+        </div>
+        <div class="card">
+          <h3>Uang Transportasi</h3>
+          <p>Rp50.000 untuk setiap zona waktu yang diikuti.</p>
+        </div>
+        <div class="card">
+          <h3>Pengalaman</h3>
+          <p>Mengenal pengalaman kerja sesuai bidang yang dipilih.</p>
+        </div>
+        <div class="card">
+          <h3>Pengembangan Skill</h3>
+          <p>Mengembangkan keterampilan sesuai posisi.</p>
+        </div>
+        <div class="card">
+          <h3>Networking</h3>
+          <p>Memperluas relasi dan kesempatan berkolaborasi.</p>
+        </div>
+        <div class="card">
+          <h3>Portofolio</h3>
+          <p>Mengembangkan hasil karya yang relevan.</p>
+        </div>
+      </div>
+
+      <div class="transport-box">
+        <h3>Simulasi Uang Transportasi</h3>
+        <p>Pilih zona waktu yang kamu ikuti.</p>
+
+        <div class="transport-zones">
+          <label class="transport-zone">
+            <input type="checkbox" class="transport-check" value="50000">
+            Pagi — Rp50.000
+          </label>
+          <label class="transport-zone">
+            <input type="checkbox" class="transport-check" value="50000">
+            Siang — Rp50.000
+          </label>
+          <label class="transport-zone">
+            <input type="checkbox" class="transport-check" value="50000">
+            Malam — Rp50.000
+          </label>
+        </div>
+
+        <p class="transport-total">
+          Total simulasi: <span id="transportTotal">Rp0</span>
+        </p>
+        <small>
+          Total dihitung berdasarkan zona yang dipilih.
+          Konfirmasi ketentuan pembayaran kepada penyelenggara.
+        </small>
+      </div>
+    </div>
+
+    <!-- 4. MATERI YANG DIPELAJARI -->
+    <div class="panel">
+      <h2>Materi yang Dipelajari</h2>
+
+      <h3>Business Executive</h3>
+      <ul>
+        <li>Dasar komunikasi dan presentasi bisnis.</li>
+        <li>Pengenalan peluang dan kebutuhan calon pelanggan.</li>
+        <li>Pengembangan relasi profesional.</li>
+      </ul>
+
+      <h3>Web Developer</h3>
+      <ul>
+        <li>Pengembangan website sesuai proyek.</li>
+        <li>Penggunaan teknologi web yang relevan.</li>
+        <li>Kolaborasi dalam pengerjaan proyek.</li>
+      </ul>
+
+      <h3>UI/UX Designer</h3>
+      <ul>
+        <li>Riset dan pemahaman kebutuhan pengguna.</li>
+        <li>User flow, wireframe, dan desain antarmuka.</li>
+        <li>Prototyping dan evaluasi desain.</li>
+      </ul>
+
+      <p class="notice">
+        Materi ini merupakan gambaran awal, bukan kurikulum
+        resmi Vision yang sudah dikonfirmasi.
+      </p>
+    </div>
+
+    <!-- 5. PERSYARATAN -->
+    <div class="panel">
+      <h2>Persyaratan Magang</h2>
+      <ul>
+        <li>
+          <strong>Business Executive:</strong>
+          Terbuka untuk mahasiswa dari semua jurusan.
+          Tidak memerlukan pengalaman sebelumnya, sehingga cocok
+          bagi peserta yang ingin belajar dan mendapatkan pengalaman
+          melalui program magang.
+        </li>
+        <li>
+          <strong>Web Developer:</strong>
+          Berlatar belakang IT dan memiliki pengalaman relevan.
+        </li>
+        <li>
+          <strong>UI/UX Designer:</strong>
+          Berlatar belakang IT dan memiliki pengalaman relevan.
+        </li>
+      </ul>
+      <p>
+        Persyaratan tambahan, durasi, jadwal, dan mekanisme seleksi
+        perlu mengikuti informasi resmi dari Vision.
+      </p>
+    </div>
+
+    <!-- 6. ALUR PENDAFTARAN -->
+    <div class="panel">
+      <h2>Alur Pendaftaran</h2>
+      <ol>
+        <li>Pahami informasi program dan pilihan posisi.</li>
+        <li>Pilih posisi sesuai kriteria.</li>
+        <li>Isi formulir minat dengan data yang benar.</li>
+        <li>Ikuti arahan penyelenggara mengenai tahap berikutnya.</li>
+      </ol>
+      <p class="notice">
+        Tahapan di atas merupakan gambaran awal dan perlu
+        disesuaikan dengan prosedur resmi Vision.
+      </p>
+    </div>
+
+    <!-- 7. FORMULIR MINAT -->
+    <div class="panel">
+      <h2>Formulir Minat Magang</h2>
+      <form id="internForm">
+        <div class="form-field">
+          <label>Nama lengkap</label>
+          <input name="nama" required placeholder="Nama kamu">
+        </div>
+
+        <div class="form-field">
+          <label>Email</label>
+          <input name="email" type="email" required
+            placeholder="nama@email.com">
+        </div>
+
+        <div class="form-field">
+          <label>Posisi yang diminati</label>
+          <select name="bidang" required>
+            <option value="">Pilih posisi</option>
+            <option value="Business Executive">Business Executive</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Latar belakang pendidikan</label>
+          <input name="pendidikan"
+            placeholder="Contoh: Sistem Teknologi Informasi">
+        </div>
+  
+        <div class="form-field">
+          <label for="internPortfolio">Pengalaman atau portofolio</label>
+          <textarea
+            id="internPortfolio"
+            name="portofolio"
+            rows="4"
+            placeholder="Ceritakan pengalaman atau tempel tautan portofolio"
+          ></textarea>
+        </div>
+
+        <button class="btn primary" type="submit">
+          Kirim Minat (Demo)
+        </button>
+        <p id="internMsg"></p>
+      </form>
+
+      <small>
+        Formulir ini masih berupa demo. Data belum dikirim
+        atau disimpan ke sistem Vision.
+      </small>
+    </div>
+
+  </div>
+</section>
+
+<section id="bisnis" class="page"><div class="container">
+  <div class="page-head"><span class="tag">BUSINESS OPPORTUNITY</span><h1>Peluang Bisnis Agen</h1><p>Pelajari informasi peluang menjadi agen asuransi melalui Vision dan Allianz.</p></div>
+  
+<!-- 1. MENGENAL JALUR BISNIS VISION -->
+<div class="panel">
+  <h2>Mengenal Bisnis Vision</h2>
+  <p>
+    Pelajari peluang menjadi agen asuransi Allianz melalui Vision.
+    Perjalanan agen dimulai dari Business Executive (BE), kemudian
+    dapat berkembang ke Business Partner (BP) sesuai persyaratan
+    dan ketentuan yang berlaku.
+  </p>
+</div>
+
+<!-- 2. TAHAPAN AGEN -->
+<div class="panel">
+  <h2>Tahapan Karier Agen</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>01. Business Executive (BE)</h3>
+      <p>
+        Tahap awal untuk mempelajari produk asuransi,
+        mengikuti kelas atau pelatihan, mengembangkan
+        kemampuan komunikasi, dan mencari calon nasabah.
+      </p>
+      <p><strong>Fokus:</strong> penjualan dan pengembangan nasabah.</p>
+    </div>
+
+    <div class="card">
+      <h3>02. Business Partner (BP)</h3>
+      <p>
+        Jenjang berikutnya yang berfokus pada pengembangan
+        bisnis dan perekrutan anggota tim, sesuai ketentuan
+        kenaikan jenjang yang berlaku.
+      </p>
+      <p><strong>Fokus:</strong> pengembangan tim dan bisnis.</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    Kenaikan dari BE ke BP tidak otomatis. Agen perlu memenuhi
+    persyaratan dan ketentuan resmi dari Vision.
+  </div>
+</div>
+
+<!-- 3. CARA KERJA DAN INCOME -->
+<div class="panel">
+  <h2>Cara Kerja dan Sistem Income</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Ikuti Kelas</h3>
+      <p>
+        Mempelajari produk, pengetahuan asuransi, dan
+        keterampilan yang dibutuhkan dalam kegiatan keagenan.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Cari Nasabah</h3>
+      <p>
+        Membangun relasi dan membantu calon nasabah
+        memahami pilihan perlindungan sesuai kebutuhan.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Kembangkan Income</h3>
+      <p>
+        Penghasilan berasal dari skema komisi atau kompensasi
+        keagenan sesuai hasil dan ketentuan yang berlaku,
+        bukan gaji bulanan tetap.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. ILUSTRASI PERKEMBANGAN BISNIS -->
+<div class="panel">
+  <h2>Layar Biru Vision</h2>
+
+  <p>
+    Berikut materi Layar Biru Vision yang menjelaskan
+    gambaran sistem bisnis, tahapan perkembangan, dan
+    proyeksi income agen.
+  </p>
+
+  <div style="margin: 24px 0; text-align: center;">
+    <img
+      src="images/layar biru-vision.jpg"
+      alt="Layar Biru Vision"
+      style="display:block; width:100%; max-width:900px; height:auto;
+      margin:0 auto; border-radius:12px; border:1px solid #e5e7eb;"
+    >
+  </div>
+
+  <h3>Penjelasan Layar Biru Vision</h3>
+  <p>
+    Materi ini menggambarkan proyeksi income dari tahun pertama
+    hingga tahun ketujuh dengan komponen N dan promosi yang
+    tercantum pada setiap tahapan.
+  </p>
+
+  <h3>Jenjang Agen</h3>
+  <p>
+    Perjalanan agen dimulai dari Business Executive (BE).
+    Agen yang memenuhi persyaratan dapat melanjutkan ke jenjang
+    Business Partner (BP), yang berfokus pada pengembangan tim
+    dan bisnis sesuai ketentuan Vision.
+  </p>
+
+  <div class="notice">
+    Angka pada gambar merupakan proyeksi dalam materi Vision,
+    bukan jaminan penghasilan. Dasar perhitungan, asumsi,
+    dan persyaratan promosi perlu dikonfirmasi kepada penyelenggara.
+  </div>
+</div>
+
+<!-- 5. PERSYARATAN -->
+<div class="panel">
+  <h2>Persyaratan dan Kenaikan Jenjang</h2>
+  <ul>
+    <li>Mengikuti proses pendaftaran keagenan.</li>
+    <li>Mengikuti kelas atau pelatihan sesuai ketentuan.</li>
+    <li>Memenuhi persyaratan keagenan yang berlaku.</li>
+    <li>
+      Untuk naik dari BE ke BP, memenuhi kriteria pencapaian
+      dan persyaratan promosi yang ditetapkan Vision.
+    </li>
+  </ul>
+
+  <p>
+    Detail target ALP, ketentuan promosi, dan persyaratan
+    resmi perlu dikonfirmasi kepada pihak Vision.
+  </p>
+</div>
+
+<!-- 6. FORMULIR MINAT -->
+<div class="panel">
+  <h2>Tertarik Menjadi Agen?</h2>
+  <p>
+    Isi formulir minat untuk mempelajari informasi lebih lanjut
+    mengenai peluang bisnis agen melalui Vision.
+  </p>
+
+  <form id="agentInterestForm">
+    <div class="form-field">
+      <label for="agentName">Nama lengkap</label>
+      <input id="agentName" name="nama" required
+        placeholder="Masukkan nama lengkap">
+    </div>
+
+    <div class="form-field">
+      <label for="agentEmail">Email</label>
+      <input id="agentEmail" name="email" type="email"
+        required placeholder="nama@email.com">
+    </div>
+
+    <div class="form-field">
+      <label for="agentPhone">Nomor WhatsApp</label>
+      <input id="agentPhone" name="whatsapp" type="tel"
+        required placeholder="Nomor WhatsApp aktif">
+    </div>
+
+    <div class="form-field">
+      <label for="agentGoal">Informasi yang ingin diketahui</label>
+      <select id="agentGoal" name="minat" required>
+        <option value="">Pilih informasi</option>
+        <option value="BE">Menjadi Business Executive</option>
+        <option value="BP">Jenjang Business Partner</option>
+        <option value="Income">Sistem income keagenan</option>
+        <option value="Other">Informasi umum</option>
+      </select>
+    </div>
+
+    <button class="btn primary" type="submit">
+      Kirim Minat (Demo)
+    </button>
+    <p id="agentInterestMsg"></p>
+  </form>
+
+  <small>
+    Formulir ini masih berupa demo. Data belum dikirim
+    ke Vision atau Allianz.
+  </small>
+</div>
+</div></section>
+
+<section id="agen" class="page"><div class="container">
+  <div class="page-head"><span class="tag">CONNECT</span><h1>Cari Agen</h1><p>Profil di bawah hanya contoh prototype. Ganti dengan data agen yang benar dan sudah mendapat izin.</p></div>
+  <div class="search"><input id="agentSearch" placeholder="Cari nama atau area agen"><button class="btn primary" onclick="filterAgents()">Cari</button></div>
+  <div class="grid" id="agents">
+    <div class="card agent" data-key="demo jakarta"><h3>👤 Profil Agen Demo 01</h3><p>Area: Jakarta<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 01')">Chat</button></div>
+    <div class="card agent" data-key="demo bekasi"><h3>👤 Profil Agen Demo 02</h3><p>Area: Bekasi<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 02')">Chat</button></div>
+    <div class="card agent" data-key="demo online"><h3>👤 Profil Agen Demo 03</h3><p>Area: Online<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 03')">Chat</button></div>
+  </div>
+  <p id="empty" class="hidden">Profil tidak ditemukan.</p>
+</div></section>
+
+<section id="chat" class="page"><div class="container">
+  <div class="page-head"><span class="tag">CONNECT</span><h1>Chat Agen</h1><p>Prototype chat. Untuk percakapan nyata, hubungkan backend atau WhatsApp resmi agen.</p></div>
+  <div class="chat-box"><div class="chat-title">💬 Chat cariDOit <span id="chatTarget">· Demo</span></div><div class="messages" id="messages"><div class="message">Halo! Ada yang ingin kamu tanyakan tentang materi atau peluang Vision?</div></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Tulis pesan..." required><button class="btn primary">Kirim</button></form></div>
+  <small>Pesan hanya tampil di browser, tidak dikirim ke agen sungguhan.</small>
+</div></section>
+</main>
+
+<footer><div class="container"><h2>cari<span style="color:var(--orange)">DO</span>it</h2><p>Kenali materi Vision, pilihan karier, dan informasi peluang.</p><a href="#ebsi" onclick="showPage('ebsi')">Explore EBSI</a><a href="#vbs" onclick="showPage('vbs')">Vision Business System</a><a href="#layar" onclick="showPage('layar')">Layar Biru Vision</a><a href="#intern" onclick="showPage('intern')">Jalur Intern</a><a href="#bisnis" onclick="showPage('bisnis')">Business Opportunity</a><small>Prototype website · Login, form, chat, dan data agen belum terhubung ke sistem nyata.</small></div></footer>
+
+<script>
+function showPage(id) {
+  const target = document.getElementById(id);
+
+  if (!target || !target.classList.contains('page')) return;
+
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.toggle('active', page.id === id);
+  });
+
+  document.querySelectorAll('.nav-dropdown').forEach(menu => {
+    menu.open = false;
+  });
+
+  history.replaceState(null, '', '#' + id);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const cashflowQuadrants = {
+  E: {
+    title: "💼 E — Employee (Karyawan)",
+    definition:
+      "Employee memperoleh penghasilan dengan bekerja untuk perusahaan atau orang lain, biasanya dalam bentuk gaji atau upah.",
+    characteristics: [
+      "Bekerja berdasarkan peran dan tanggung jawab tertentu.",
+      "Umumnya mengikuti aturan dan sistem perusahaan.",
+      "Penghasilan biasanya berasal dari gaji atau upah.",
+      "Kesempatan berkembang dapat berasal dari pengalaman, keterampilan, dan promosi."
+    ],
+    source:
+      "Gaji, upah, bonus, atau tunjangan sesuai ketentuan pekerjaan.",
+    example:
+      "Seorang UI/UX Designer bekerja di perusahaan teknologi, merancang antarmuka aplikasi, berkolaborasi dengan tim, dan menerima gaji bulanan.",
+    advantages:
+      "Penghasilan cenderung lebih teratur dan pembagian tugas lebih jelas.",
+    challenges:
+      "Penghasilan dan perkembangan karier dapat dipengaruhi kebijakan perusahaan, posisi, dan kondisi pekerjaan.",
+    firstStep:
+      "Kembangkan keterampilan, pengalaman, portofolio, dan perencanaan keuangan pribadi."
+  },
+
+  S: {
+    title: "🧑‍💻 S — Self-Employed (Pekerja Mandiri)",
+    definition:
+      "Self-Employed memperoleh penghasilan melalui pekerjaan atau jasa yang dikelola sendiri. Penghasilan sering bergantung pada keahlian, waktu, dan keterlibatan pribadi.",
+    characteristics: [
+      "Memiliki kendali lebih besar atas cara bekerja.",
+      "Mencari klien atau pelanggan sendiri.",
+      "Mengatur jadwal, biaya, dan kualitas pekerjaan.",
+      "Bertanggung jawab atas pendapatan dan pengeluaran pekerjaannya."
+    ],
+    source:
+      "Bayaran proyek, honor jasa, biaya konsultasi, atau pendapatan dari pelanggan.",
+    example:
+      "Seorang freelance designer menerima proyek desain aplikasi dari beberapa klien dan mendapatkan bayaran berdasarkan kesepakatan.",
+    advantages:
+      "Lebih fleksibel dalam memilih proyek, klien, dan cara bekerja.",
+    challenges:
+      "Pendapatan dapat berubah-ubah dan pekerjaan sering bergantung pada waktu serta kemampuan pribadi.",
+    firstStep:
+      "Bangun portofolio, tentukan layanan dan harga, serta pelajari cara mencari klien."
+  },
+
+  B: {
+    title: "🏢 B — Business Owner (Pemilik Bisnis)",
+    definition:
+      "Business Owner memiliki bisnis dan membangun sistem, proses, serta tim agar kegiatan usaha dapat berjalan tanpa harus bergantung sepenuhnya pada pemilik.",
+    characteristics: [
+      "Membangun dan mengembangkan sistem bisnis.",
+      "Mengelola tim, operasional, dan strategi.",
+      "Membuat proses kerja yang dapat dijalankan secara konsisten.",
+      "Bertanggung jawab atas keputusan dan risiko bisnis."
+    ],
+    source:
+      "Keuntungan usaha yang diperoleh setelah memperhitungkan biaya dan kewajiban bisnis.",
+    example:
+      "Pemilik perusahaan desain digital membangun tim designer, mengatur proses pelayanan klien, dan membuat sistem operasional untuk menjalankan bisnis.",
+    advantages:
+      "Bisnis memiliki peluang berkembang melalui sistem, tim, dan proses yang dapat diperluas.",
+    challenges:
+      "Membutuhkan pengelolaan tim, modal, operasional, dan risiko usaha. Keuntungan tidak dijamin.",
+    firstStep:
+      "Validasi kebutuhan pasar, buat model bisnis sederhana, hitung biaya, dan bangun proses yang dapat diulang."
+  },
+
+  I: {
+    title: "📈 I — Investor (Investor)",
+    definition:
+      "Investor menggunakan uang atau modal untuk membeli aset atau menanamkan dana dengan tujuan memperoleh hasil investasi di masa depan.",
+    characteristics: [
+      "Mempelajari aset dan instrumen sebelum berinvestasi.",
+      "Mempertimbangkan potensi hasil, risiko, dan jangka waktu.",
+      "Mengelola modal sesuai tujuan keuangan.",
+      "Memantau kinerja investasi dan meninjau keputusan sesuai kebutuhan."
+    ],
+    source:
+      "Potensi hasil dari aset, misalnya dividen, bunga, pendapatan sewa, atau kenaikan nilai aset, bergantung pada instrumennya.",
+    example:
+      "Seseorang mempelajari reksa dana atau saham, menentukan tujuan investasi, lalu mengalokasikan dana sesuai kemampuan dan toleransi risikonya.",
+    advantages:
+      "Memiliki peluang mengembangkan aset tanpa harus menukar seluruh waktu kerja secara langsung dengan pendapatan.",
+    challenges:
+      "Nilai investasi dapat turun dan modal dapat mengalami kerugian. Hasil tidak pasti.",
+    firstStep:
+      "Pelajari dasar investasi, pahami risiko dan biaya, siapkan dana sesuai kondisi keuangan, serta hindari janji keuntungan pasti."
+  }
+};
+
+function detailEBSI(code) {
+  const item = cashflowQuadrants[code];
+  if (!item) return;
+
+  document.getElementById("ebsiTitle").textContent = item.title;
+
+  document.getElementById("ebsiText").innerHTML = `
+    <h3>Pengertian</h3>
+    <p>${item.definition}</p>
+
+    <h3>Karakteristik</h3>
+    <ul>
+      ${item.characteristics.map(x => `<li>${x}</li>`).join("")}
+    </ul>
+
+    <h3>Sumber Penghasilan</h3>
+    <p>${item.source}</p>
+
+    <h3>Contoh dalam Kehidupan</h3>
+    <p>${item.example}</p>
+
+    <h3>Kelebihan</h3>
+    <p>${item.advantages}</p>
+
+    <h3>Tantangan</h3>
+    <p>${item.challenges}</p>
+
+    <h3>Langkah Awal</h3>
+    <p>${item.firstStep}</p>
+  `;
+
+  document.getElementById("ebsiDetail").classList.remove("hidden");
+  document.getElementById("ebsiDetail").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function closeEBSI() {
+  document.getElementById("ebsiDetail").classList.add("hidden");
+}
+document.getElementById('internForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('internMsg').textContent =
+    'Simulasi berhasil. Data belum dikirim atau disimpan ke Vision.';
+});
+function filterAgents() {
+  const q = document.getElementById('agentSearch').value.toLowerCase();
+  let count = 0;
+  document.querySelectorAll('.agent').forEach(a => {
+    const show = (a.dataset.key + a.innerText).toLowerCase().includes(q);
+    a.classList.toggle('hidden', !show);
+    if (show) count++;
+  });
+  document.getElementById('empty').classList.toggle('hidden', count > 0);
+}
+document.getElementById('agentSearch').addEventListener('input', filterAgents);
+function openChat(name) {
+  document.getElementById('chatTarget').textContent = '· ' + name + ' (demo)';
+  document.getElementById('messages').innerHTML =
+    '<div class="message">Percakapan demo dengan ' + name +
+    '. Belum terhubung ke agen nyata.</div>';
+  showPage('chat');
+}
+document.getElementById('chatForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const input = document.getElementById('chatInput');
+  if (!input.value.trim()) return;
+  const msg = document.createElement('div');
+  msg.className = 'message mine';
+  msg.textContent = input.value;
+  document.getElementById('messages').appendChild(msg);
+  input.value = '';
+  const reply = document.createElement('div');
+  reply.className = 'message';
+  reply.textContent = 'Ini prototype. Pesan belum dikirim ke agen sungguhan.';
+  document.getElementById('messages').appendChild(reply);
+});
+document.querySelectorAll('section.page').forEach((section) => {
+  if (section.id === 'home') return;
+
+  const container = section.querySelector('.container');
+  if (!container || container.querySelector('.back-home')) return;
+
+  const button = document.createElement('button');
+  button.className = 'back-home';
+  button.textContent = '← Kembali ke Beranda';
+  button.onclick = () => showPage('home');
+
+  container.prepend(button);
+});
+
+function showHomeSection(id) {
+  showPage('home');
+
+  setTimeout(() => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }, 150);
+}
+
+function selectInternPosition(position) {
+  const bidang = document.querySelector(
+    '#internForm [name="bidang"]'
+  );
+
+  if (bidang) {
+    bidang.value = position;
+    document.getElementById('internForm').scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+}
+
+function updateTransportTotal() {
+  const checks = document.querySelectorAll(
+    '.transport-check:checked'
+  );
+
+  const total = Array.from(checks).reduce(
+    (sum, check) => sum + Number(check.value),
+    0
+  );
+
+  document.getElementById('transportTotal').textContent =
+    'Rp' + total.toLocaleString('id-ID');
+}
+
+document.querySelectorAll('.transport-check').forEach(check => {
+  check.addEventListener('change', updateTransportTotal);
+});
+
+document.getElementById('internForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('internMsg').textContent =
+    'Simulasi berhasil. Data belum dikirim atau disimpan ke Vision.';
+});
+
+document.getElementById('agentInterestForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  document.getElementById('agentInterestMsg').textContent =
+    'Simulasi berhasil. Data belum dikirim atau disimpan ke Vision.';
+});
+
+function showVisionComponent(component) {
+  const components = {
+    n: {
+      title: 'Komponen N',
+      text: 'Komponen N tercantum dalam materi Layar Biru Vision. Arti dan cara perhitungannya perlu dikonfirmasi kepada pihak Vision.'
+    },
+    promosi: {
+      title: 'Promosi',
+      text: 'Materi menampilkan komponen promosi. Tahapan dan persyaratan promosi perlu mengikuti ketentuan resmi Vision.'
+    },
+    leader: {
+      title: 'Calon Leader',
+      text: 'Istilah Calon Leader tercantum dalam materi. Peran dan kriteria untuk menjadi leader perlu dikonfirmasi kepada pihak Vision.'
+    }
+  };
+
+  const selected = components[component];
+  const detail = document.getElementById('visionComponentDetail');
+
+  if (!selected || !detail) return;
+
+  detail.innerHTML = `
+    <h3>${selected.title}</h3>
+    <p>${selected.text}</p>
+  `;
+
+  document.querySelectorAll('.vision-component-card').forEach(button => {
+    button.classList.remove('active');
+  });
+
+  const index = { n: 0, promosi: 1, leader: 2 }[component];
+  const buttons = document.querySelectorAll('.vision-component-card');
+
+  if (buttons[index]) {
+    buttons[index].classList.add('active');
+  }
+}
+
+function showVisionYear(year) {
+  const incomeData = {
+    1: 'Rp15 juta/bulan',
+    2: 'Rp35 juta/bulan',
+    3: 'Rp82 juta/bulan',
+    4: 'Rp291 juta/bulan',
+    5: 'Rp1,1 miliar/bulan',
+    6: 'Rp4,5 miliar/bulan',
+    7: 'Rp17,9 miliar/bulan'
+  };
+
+  const yearLabel = document.getElementById('visionIncomeYear');
+  const incomeValue = document.getElementById('visionIncomeValue');
+  const description = document.getElementById('visionIncomeDescription');
+
+  if (!incomeData[year] || !yearLabel || !incomeValue || !description) {
+    return;
+  }
+
+  yearLabel.textContent = 'PROYEKSI TAHUN ' + year;
+  incomeValue.textContent = incomeData[year];
+  description.textContent =
+    'Angka proyeksi tahun ' + year +
+    ' berdasarkan materi yang dibagikan, bukan jaminan pendapatan.';
+
+  document.querySelectorAll('.vision-year').forEach(button => {
+    button.classList.remove('active');
+  });
+
+  const buttons = document.querySelectorAll('.vision-year');
+
+  if (buttons[year - 1]) {
+    buttons[year - 1].classList.add('active');
+  }
+}
+</script>
+</body>
+</html>
