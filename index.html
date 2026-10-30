@@ -1197,6 +1197,96 @@ footer a { display: block; margin: 6px 0; }
 .form-field label {
   color: var(--navy);
 }
+
+.transport-box{margin-top:24px;padding:22px;border:1px solid var(--border);border-radius:16px;background:var(--soft-blue)}
+.transport-zones{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.transport-zone{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;font-weight:bold;cursor:pointer;transition:border-color .2s,background .2s}
+.transport-zone:has(input:checked){border-color:var(--blue);background:#eaf3ff}
+.transport-total{font-size:20px;font-weight:bold;color:var(--navy)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+.to-top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border:0;border-radius:50%;background:var(--blue);color:#fff;font-size:20px;box-shadow:0 8px 20px rgba(18,53,107,.25);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s;z-index:20}
+.to-top.visible{opacity:1;pointer-events:auto}
+
+.vision-bars{display:grid;grid-template-columns:repeat(7,1fr);gap:9px;height:150px;margin:0 0 22px}
+.vision-bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;padding:0;border:0;background:none;gap:6px;color:#64748b}
+.vision-bar-fill{width:100%;border-radius:8px 8px 0 0;background:#c9dcf5;transition:height .5s ease,background .2s}
+.vision-bar.active .vision-bar-fill,.vision-bar:hover .vision-bar-fill{background:var(--blue)}
+
+.accordion{margin:10px 0;border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden}
+.accordion summary{padding:14px 18px;font-weight:bold;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary::after{content:"+";font-size:20px;color:var(--blue)}
+.accordion[open] summary::after{content:"−"}
+.accordion[open] summary{background:var(--soft-blue)}
+.accordion ul{margin:0;padding:14px 18px 14px 38px}
+
+.vision-income-result{margin-bottom:20px}
+.vision-income .notice{margin-top:0}
+
+.bsp-block{margin:24px 0}
+.bsp-block h2{margin-top:10px;color:#12356b}
+.bsp-table{width:100%;border-collapse:collapse;text-align:left}
+.bsp-table th,.bsp-table td{padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;line-height:1.6}
+.bsp-table th{background:#f1f6fd;color:var(--navy)}
+.bsp-table td:first-child{font-weight:bold;color:var(--navy)}
+.bsp-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.bsp-tab{padding:11px 18px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--navy);font-weight:bold}
+.bsp-tab.active,.bsp-tab:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.bsp-path{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bsp-col{padding:20px;border:1px solid var(--border);border-radius:14px;background:#f8fbff}
+.bsp-col h3{margin-top:0;color:var(--navy)}
+.bsp-col ul{margin:0;padding-left:20px}
+.bsp-col li{margin-bottom:8px;line-height:1.7;color:var(--muted)}
+.bsp-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.bsp-stat{padding:18px;border:1px solid var(--border);border-radius:14px;background:#f8fbff}
+.bsp-stat strong{display:block;font-size:22px;color:var(--blue);overflow-wrap:anywhere}
+.bsp-stat p{margin:6px 0 0;font-size:14px}
+@media(max-width:700px){.bsp-path,.bsp-stats{grid-template-columns:1fr}}
+
+.agent-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.agent-chip{padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:#fff;color:var(--navy);font-weight:bold}
+.agent-chip.active,.agent-chip:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.agent-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btn-wa{background:#25d366;color:#05301a}
+
+.quick-replies{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px;border-top:1px solid #e1e8f2;background:#f8fbff}
+.quick-reply{padding:7px 12px;border:1px solid var(--border);border-radius:18px;background:#fff;color:var(--navy);font-size:13px;font-weight:bold}
+.quick-reply:hover{background:var(--soft-blue)}
+.msg-time{display:block;margin-top:4px;font-size:11px;color:#8793a5}
+.message.typing{color:var(--muted);font-style:italic}
+
+#bsp .panel.section{padding:28px;margin:24px 0}
+#bsp .panel.section h2{margin-top:0}
+
+.back-prev{margin-right:10px}
+
+.form-field input[type="checkbox"]{width:auto;margin-right:8px;vertical-align:middle}
+
+.intern-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 24px}
+.intern-step{text-align:center;padding:12px 8px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.intern-step span{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;border-radius:50%;background:#e8effa;color:var(--navy);font-weight:bold}
+.intern-step p{margin:6px 0 0;font-size:13px}
+.intern-step.done{border-color:var(--blue);background:#eaf3ff}
+.intern-step.done span{background:var(--blue);color:#fff}
+.intern-step.current{border-color:var(--orange)}
+.intern-step.current span{background:var(--orange);color:#321b0b}
+@media(max-width:600px){.intern-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.intern-steps{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media(max-width:900px){.intern-steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:600px){.intern-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.status-box{margin:0 0 24px;padding:20px;border:1px solid var(--border);border-radius:14px;background:var(--soft-blue)}
+.status-box h3{margin:0 0 6px;color:var(--navy)}
+.status-row{display:flex;gap:10px;flex-wrap:wrap}
+.status-row input{flex:1;min-width:200px;padding:11px 14px;border:1px solid var(--border);border-radius:10px}
+#statusMsg{margin:12px 0 0;font-weight:bold;color:var(--navy)}
+
+.form-field input[type="file"]{padding:10px;background:#fff}
+.file-hint{display:block;margin-top:5px;color:var(--muted);font-size:12px}
 </style>
 </head>
 
@@ -1233,9 +1323,6 @@ footer a { display: block; margin: 6px 0; }
         <div class="dropdown-content">
           <a href="#ebsi" onclick="showPage('ebsi'); return false;">
             Cashflow Quadrant
-          </a>
-          <a href="#vbs" onclick="showPage('vbs'); return false;">
-            Business System
           </a>
           <a href="#layar" onclick="showPage('layar'); return false;">
             Layar Biru Vision
@@ -1358,7 +1445,7 @@ footer a { display: block; margin: 6px 0; }
     <!-- aturDOit Academy -->
     <article id="academy" class="ecosystem-card academy-card">
       <div class="ecosystem-visual academy-visual">
-         <img src="images/logo-aturdoit academy.png" alt="Logo aturDOit Academy">
+         <img src="images/logo-aturdoit-academy.png" alt="Logo aturDOit Academy">
       </div>
       <div class="ecosystem-body">
         <span class="ecosystem-label">FINANCIAL EDUCATION</span>
@@ -1521,7 +1608,7 @@ footer a { display: block; margin: 6px 0; }
 </div>
 
 <!-- MISI DOit CORPORATION -->
-<div class="home-section mission-section">
+<div id="tentang" class="home-section mission-section">
   <div class="home-heading">
     <span class="home-eyebrow">DOit CORPORATION</span>
     <h2>Our Mission</h2>
@@ -1776,11 +1863,6 @@ footer a { display: block; margin: 6px 0; }
   </div>
 </section>
 
-<section id="vbs" class="page"><div class="container">
-  <div class="page-head"><span class="tag">VISION BUSINESS SYSTEM</span><h1>Vision Business System</h1><p>Halaman untuk mempelajari sistem bisnis berdasarkan materi resmi Vision.</p></div>
-  <div class="panel"><h2>Materi Vision Business System</h2><p>Tambahkan diagram, alur, video, penjelasan, dan FAQ yang benar-benar berasal dari pihak Vision.</p><div class="notice">Transkrip BSP yang dibagikan membahas perspektif karier, entrepreneurship, risiko bisnis, dan cash flow. Jangan menganggapnya sebagai dokumentasi teknis sistem Vision jika tidak menjelaskan sistem tersebut secara langsung.</div></div>
-</div></section>
-
 <section id="layar" class="page"><div class="container">
   <div class="page-head"><span class="tag">LAYAR BIRU VISION</span><h1>Layar Biru Vision</h1><p>Halaman untuk menyusun materi Layar Biru yang sudah kamu terima.</p></div>
   
@@ -1812,7 +1894,7 @@ footer a { display: block; margin: 6px 0; }
   </p>
 
   <img
-    src="images/layar biru-vision.jpg"
+    src="images/layar-biru-vision.jpg"
     alt="Materi Layar Biru Vision"
     class="vision-main-image"
   >
@@ -1887,6 +1969,8 @@ footer a { display: block; margin: 6px 0; }
       onclick="showVisionYear(7)">Tahun 7</button>
   </div>
 
+  <div class="vision-bars" id="visionBars"></div>
+
   <div class="vision-income-result">
     <span id="visionIncomeYear">PROYEKSI TAHUN 1</span>
     <h3 id="visionIncomeValue">Rp15 juta/bulan</h3>
@@ -1910,6 +1994,121 @@ footer a { display: block; margin: 6px 0; }
     <div class="card"><h3>🏢 Jalur corporate</h3><p>Corporate dapat memberi pengalaman dan networking. Perkembangan karier juga dipengaruhi sistem, anggaran, dan siklus promosi.</p></div>
     <div class="card"><h3>🛠️ Tantangan bisnis</h3><p>Bisnis memiliki tanggung jawab terkait modal, people, operations, risiko, dan cash flow.</p></div>
   </div>
+
+  <!-- ===== BSP: PEMBICARA ===== -->
+<div class="panel bsp-block">
+  <span class="vision-label">PEMBICARA</span>
+  <h2>Juliana Parmadi</h2>
+  <p>
+    Dalam sesi BSP, Juliana membagikan perjalanan kariernya: pernah
+    bekerja di perbankan (HSBC Premier Banking), menjalankan beberapa
+    usaha, lalu bergabung di Vision pada 2018. Dari pengalaman itu ia
+    membahas bahwa setiap jalur karier punya trade-off.
+  </p>
+</div>
+
+<!-- ===== BSP: DULU VS SEKARANG ===== -->
+<div class="panel bsp-block">
+  <span class="vision-label">DEFINISI SUKSES</span>
+  <h2>Sukses Dulu vs Sekarang</h2>
+  <p>
+    Menurut pembicara, cara orang memaknai sukses sudah bergeser.
+    Bukan hanya soal uang dan jabatan, tetapi juga pilihan, makna,
+    dan kesehatan mental.
+  </p>
+  <div style="overflow-x:auto">
+    <table class="bsp-table">
+      <thead>
+        <tr><th>Aspek</th><th>Dulu</th><th>Sekarang</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fokus</td><td>Mendapatkan pekerjaan</td><td>Membangun hidup yang baik</td></tr>
+        <tr><td>Tempat kerja</td><td>Perusahaan besar</td><td>Punya pilihan karier dan banyak sumber income</td></tr>
+        <tr><td>Tujuan</td><td>Naik jabatan</td><td>Otonomi dan fleksibilitas</td></tr>
+        <tr><td>Loyalitas</td><td>Bertahan 20–30 tahun di satu perusahaan</td><td>Bisa mengubah karier berkali-kali</td></tr>
+        <tr><td>Ukuran sukses</td><td>Gaji dan jabatan</td><td>Income ditambah makna</td></tr>
+        <tr><td>Aset</td><td>Punya rumah, mobil, dan aset</td><td>Punya aset dan bisa menikmatinya</td></tr>
+        <tr><td>Pola hidup</td><td>Kerja keras dulu, dinikmati nanti</td><td>Tetap bertumbuh tanpa mengorbankan hidup</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== BSP: BANDINGKAN JALUR (INTERAKTIF) ===== -->
+<div class="panel bsp-block">
+  <span class="vision-label">BANDINGKAN JALUR</span>
+  <h2>Setiap Jalur Punya Trade-off</h2>
+  <p>Pilih jalur untuk melihat kelebihan dan harga yang perlu dibayar.</p>
+
+  <div class="bsp-tabs">
+    <button type="button" class="bsp-tab active" data-path="corporate"
+      onclick="showBspPath('corporate')">🏢 Corporate</button>
+    <button type="button" class="bsp-tab" data-path="bisnis"
+      onclick="showBspPath('bisnis')">🛠️ Bisnis Sendiri</button>
+  </div>
+
+  <div class="bsp-path" id="bspPath"></div>
+</div>
+
+<!-- ===== BSP: ANGKA DARI MATERI ===== -->
+<div class="panel bsp-block">
+  <span class="vision-label">ANGKA DARI MATERI</span>
+  <h2>Data yang Disebut dalam Sesi</h2>
+  <div class="bsp-stats">
+    <div class="bsp-stat"><strong>23.000</strong><p>Responden Gen Z dan milenial di 44 negara dalam survei Deloitte yang disebut pembicara.</p></div>
+    <div class="bsp-stat"><strong>5–10%</strong><p>Asumsi kenaikan gaji per tahun, merujuk Mercer.</p></div>
+    <div class="bsp-stat"><strong>117 email</strong><p>Plus 153 pesan per hari kerja, merujuk survei Microsoft 2025.</p></div>
+    <div class="bsp-stat"><strong>40%</strong><p>Pengguna yang sudah memeriksa email kerja pukul 6 pagi.</p></div>
+    <div class="bsp-stat"><strong>Rp6 juta → ±Rp27 juta</strong><p>Hitungan pembicara untuk gaji awal 2010 jika naik 10% per tahun.</p></div>
+    <div class="bsp-stat"><strong>88%</strong><p>Bisnis keluarga yang gagal suksesi bila penerus tidak paham cash flow, menurut pembicara.</p></div>
+  </div>
+  <div class="notice">
+    Angka di atas disebutkan pembicara dalam sesi dan dirangkum dari
+    transkrip. Sumber aslinya perlu diverifikasi sebelum dijadikan acuan.
+  </div>
+</div>
+
+<!-- ===== BSP: CERITA PENGALAMAN ===== -->
+<div class="panel bsp-block">
+  <span class="vision-label">CERITA PENGALAMAN</span>
+  <h2>Pelajaran dari Perjalanan Bisnis</h2>
+
+  <details class="accordion">
+    <summary>Karier di perbankan (2010)</summary>
+    <ul>
+      <li>Memulai di HSBC Premier Banking dengan gaji awal Rp6 juta.</li>
+      <li>Dengan asumsi naik 10% per tahun, hitungan pembicara menembus sekitar Rp27 juta per bulan sekarang.</li>
+      <li>Harganya: jam kerja yang kurang fleksibel, dan posisi tidak bisa diwariskan.</li>
+    </ul>
+  </details>
+
+  <details class="accordion">
+    <summary>JustTip dan usaha kue (berhenti saat hamil)</summary>
+    <ul>
+      <li>JustTip menuntut perjalanan ke luar negeri dua kali sebulan dan membawa barang sendiri, sehingga harus berhenti saat hamil.</li>
+      <li>Usaha kue tier besar memakan waktu berhari-hari dan sulit didelegasikan karena orang membeli selera si pembuat.</li>
+      <li>Pelajaran: bisnis jasa sangat bergantung pada orangnya.</li>
+    </ul>
+  </details>
+
+  <details class="accordion">
+    <summary>Franchise preschool: sewa naik 4 kali lipat</summary>
+    <ul>
+      <li>Balik modal (BEP) di tahun kelima.</li>
+      <li>Saat kontrak akan diperpanjang, pemilik lahan ingin menjual dan menaikkan harga sekitar 4 kali lipat.</li>
+      <li>Pembicara memutuskan menjual sahamnya, lalu pandemi membuat murid berkurang sekitar setengahnya.</li>
+      <li>Pelajaran: bisnis yang bagus pun punya risiko di luar kendali.</li>
+    </ul>
+  </details>
+
+  <details class="accordion">
+    <summary>Pelajaran dari bisnis keluarga 100 tahun</summary>
+    <ul>
+      <li>Pembicara mencontohkan bisnis yang berdiri hampir seabad namun tetap rentan terhadap cash flow, utang, distribusi, dan perubahan pasar.</li>
+      <li>Kesimpulan: memiliki bisnis tidak sama dengan memiliki kebebasan. Kalau bisnis tidak bisa jalan tanpa kita, itu belum freedom.</li>
+    </ul>
+  </details>
+</div>
   <div class="panel section"><h2>Pesan utama</h2><p>Setiap jalur memiliki trade-off. Pelajari peluang, tanggung jawab, dan risikonya sebelum mengambil keputusan.</p></div>
 </div></section>
 
@@ -2051,28 +2250,31 @@ footer a { display: block; margin: 6px 0; }
 
     <!-- 4. MATERI YANG DIPELAJARI -->
     <div class="panel">
-      <h2>Materi yang Dipelajari</h2>
-
-      <h3>Business Executive</h3>
-      <ul>
-        <li>Dasar komunikasi dan presentasi bisnis.</li>
-        <li>Pengenalan peluang dan kebutuhan calon pelanggan.</li>
-        <li>Pengembangan relasi profesional.</li>
-      </ul>
-
-      <h3>Web Developer</h3>
-      <ul>
-        <li>Pengembangan website sesuai proyek.</li>
-        <li>Penggunaan teknologi web yang relevan.</li>
-        <li>Kolaborasi dalam pengerjaan proyek.</li>
-      </ul>
-
-      <h3>UI/UX Designer</h3>
-      <ul>
-        <li>Riset dan pemahaman kebutuhan pengguna.</li>
-        <li>User flow, wireframe, dan desain antarmuka.</li>
-        <li>Prototyping dan evaluasi desain.</li>
-      </ul>
+      <h2>Materi yang Dipelajari</h2>   
+      <details class="accordion">
+        <summary>Business Executive</summary>
+        <ul>
+          <li>Dasar komunikasi dan presentasi bisnis.</li>
+          <li>Pengenalan peluang dan kebutuhan calon pelanggan.</li>
+          <li>Pengembangan relasi profesional.</li>
+        </ul>
+      </details>
+      <details class="accordion">
+        <summary>Web Developer</summary>
+        <ul>
+          <li>Pengembangan website sesuai proyek.</li>
+          <li>Penggunaan teknologi web yang relevan.</li>
+          <li>Kolaborasi dalam pengerjaan proyek.</li>
+        </ul>
+      </details>
+      <details class="accordion">
+        <summary>UI/UX Designer</summary>
+        <ul>
+          <li>Riset dan pemahaman kebutuhan pengguna.</li>
+          <li>User flow, wireframe, dan desain antarmuka.</li>
+          <li>Prototyping dan evaluasi desain.</li>
+        </ul>
+      </details>
 
       <p class="notice">
         Materi ini merupakan gambaran awal, bukan kurikulum
@@ -2124,6 +2326,25 @@ footer a { display: block; margin: 6px 0; }
     <!-- 7. FORMULIR MINAT -->
     <div class="panel">
       <h2>Formulir Minat Magang</h2>
+        <div class="intern-steps" id="internSteps">
+        <div class="intern-step" data-step="1"><span>1</span><p>Pahami program</p></div>
+        <div class="intern-step" data-step="2"><span>2</span><p>Pilih posisi</p></div>
+        <div class="intern-step" data-step="3"><span>3</span><p>Isi formulir</p></div>
+        <div class="intern-step" data-step="4"><span>4</span><p>Seleksi berkas</p></div>
+        <div class="intern-step" data-step="5"><span>5</span><p>Interview</p></div>
+        <div class="intern-step" data-step="6"><span>6</span><p>Pengumuman hasil</p></div>
+        <div class="intern-step" data-step="7"><span>7</span><p>Mulai magang</p></div>
+      </div>
+
+      <div class="status-box">
+        <h3>Cek Status Pendaftaran</h3>
+        <p>Sudah mendaftar? Masukkan email yang kamu pakai di formulir.</p>
+        <div class="status-row">
+          <input id="statusEmail" type="email" placeholder="nama@email.com">
+          <button type="button" class="btn primary" id="statusBtn" onclick="cekStatus()">Cek Status</button>
+        </div>
+        <p id="statusMsg"></p>
+      </div>
       <form id="internForm">
         <div class="form-field">
           <label>Nama lengkap</label>
@@ -2162,15 +2383,33 @@ footer a { display: block; margin: 6px 0; }
           ></textarea>
         </div>
 
+        <div class="form-field">
+          <label for="internCv">Unggah CV</label>
+          <input id="internCv" name="cv" type="file" accept=".pdf,.docx,image/jpeg,image/png" required>
+          <small class="file-hint">Format PDF, DOCX, JPG, atau PNG. Maksimal 2 MB.</small>
+        </div>
+
+        <div class="form-field">
+          <label for="internPortoFile">Unggah portofolio</label>
+          <input id="internPortoFile" name="portofolio_file" type="file" accept=".pdf,.docx,image/jpeg,image/png">
+          <small class="file-hint">Wajib untuk Web Developer dan UI/UX Designer (boleh file atau tautan di kotak di atas). Maksimal 2 MB.</small>
+        </div>
+
+        <div class="form-field">
+          <label style="font-weight:normal">
+            <input type="checkbox" name="persetujuan" value="setuju" required style="width:auto">
+            Saya setuju data ini digunakan penyelenggara untuk keperluan seleksi magang.
+          </label>
+        </div>
+
         <button class="btn primary" type="submit">
-          Kirim Minat (Demo)
+          Kirim Minat
         </button>
         <p id="internMsg"></p>
       </form>
 
       <small>
-        Formulir ini masih berupa demo. Data belum dikirim
-        atau disimpan ke sistem Vision.
+        Data yang kamu kirim akan diterima penyelenggara. Pantau statusnya lewat Cek Status.
       </small>
     </div>
 
@@ -2267,7 +2506,7 @@ footer a { display: block; margin: 6px 0; }
 
   <div style="margin: 24px 0; text-align: center;">
     <img
-      src="images/layar biru-vision.jpg"
+      src="images/layar-biru-vision.jpg"
       alt="Layar Biru Vision"
       style="display:block; width:100%; max-width:900px; height:auto;
       margin:0 auto; border-radius:12px; border:1px solid #e5e7eb;"
@@ -2369,6 +2608,12 @@ footer a { display: block; margin: 6px 0; }
 <section id="agen" class="page"><div class="container">
   <div class="page-head"><span class="tag">CONNECT</span><h1>Cari Agen</h1><p>Profil di bawah hanya contoh prototype. Ganti dengan data agen yang benar dan sudah mendapat izin.</p></div>
   <div class="search"><input id="agentSearch" placeholder="Cari nama atau area agen"><button class="btn primary" onclick="filterAgents()">Cari</button></div>
+  <div class="agent-chips" id="agentChips">
+  <button type="button" class="agent-chip active" onclick="setAgentArea('', this)">Semua</button>
+  <button type="button" class="agent-chip" onclick="setAgentArea('jakarta', this)">Jakarta</button>
+  <button type="button" class="agent-chip" onclick="setAgentArea('bekasi', this)">Bekasi</button>
+  <button type="button" class="agent-chip" onclick="setAgentArea('online', this)">Online</button>
+</div>
   <div class="grid" id="agents">
     <div class="card agent" data-key="demo jakarta"><h3>👤 Profil Agen Demo 01</h3><p>Area: Jakarta<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 01')">Chat</button></div>
     <div class="card agent" data-key="demo bekasi"><h3>👤 Profil Agen Demo 02</h3><p>Area: Bekasi<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 02')">Chat</button></div>
@@ -2378,13 +2623,20 @@ footer a { display: block; margin: 6px 0; }
 </div></section>
 
 <section id="chat" class="page"><div class="container">
-  <div class="page-head"><span class="tag">CONNECT</span><h1>Chat Agen</h1><p>Prototype chat. Untuk percakapan nyata, hubungkan backend atau WhatsApp resmi agen.</p></div>
-  <div class="chat-box"><div class="chat-title">💬 Chat cariDOit <span id="chatTarget">· Demo</span></div><div class="messages" id="messages"><div class="message">Halo! Ada yang ingin kamu tanyakan tentang materi atau peluang Vision?</div></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Tulis pesan..." required><button class="btn primary">Kirim</button></form></div>
-  <small>Pesan hanya tampil di browser, tidak dikirim ke agen sungguhan.</small>
+  <div class="page-head"><span class="tag">CONNECT</span><h1>Chat Agen</h1><p>Tanyakan seputar Layar Biru Vision, program magang, dan peluang menjadi agen.</p></div>
+  <div class="chat-box"><div class="chat-title">💬 Chat cariDOit <span id="chatTarget">· Demo</span></div><div class="messages" id="messages"><div class="message">Halo! Ada yang ingin kamu tanyakan tentang materi atau peluang Vision?</div></div><div class="quick-replies" id="quickReplies"></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Tulis pesan..." required><button class="btn primary">Kirim</button></form></div>
+  <small>Butuh jawaban lebih lengkap? Klik tombol di bawah untuk melanjutkan percakapan ke WhatsApp agen.</small>
+  <div style="margin-top:14px">
+  <button type="button" class="btn btn-wa" onclick="continueOnWhatsApp()">
+    Lanjutkan ke WhatsApp
+  </button>
+</div>
 </div></section>
 </main>
 
-<footer><div class="container"><h2>cari<span style="color:var(--orange)">DO</span>it</h2><p>Kenali materi Vision, pilihan karier, dan informasi peluang.</p><a href="#ebsi" onclick="showPage('ebsi')">Explore EBSI</a><a href="#vbs" onclick="showPage('vbs')">Vision Business System</a><a href="#layar" onclick="showPage('layar')">Layar Biru Vision</a><a href="#intern" onclick="showPage('intern')">Jalur Intern</a><a href="#bisnis" onclick="showPage('bisnis')">Business Opportunity</a><small>Prototype website · Login, form, chat, dan data agen belum terhubung ke sistem nyata.</small></div></footer>
+<footer><div class="container"><h2>cari<span style="color:var(--orange)">DO</span>it</h2><p>Kenali materi Vision, pilihan karier, dan informasi peluang.</p><a href="#ebsi" onclick="showPage('ebsi')">Explore EBSI</a><a href="#bisnis" onclick="showPage('bisnis')">Vision Business System</a><a href="#layar" onclick="showPage('layar')">Layar Biru Vision</a><a href="#intern" onclick="showPage('intern')">Jalur Intern</a><a href="#bisnis" onclick="showPage('bisnis')">Business Opportunity</a><small>Prototype website · Login, form, chat, dan data agen belum terhubung ke sistem nyata.</small></div></footer>
+
+<button id="toTop" class="to-top" type="button" aria-label="Kembali ke atas">↑</button>
 
 <script>
 function showPage(id) {
@@ -2400,7 +2652,7 @@ function showPage(id) {
     menu.open = false;
   });
 
-  history.replaceState(null, '', '#' + id);
+  history.pushState(null, '', '#' + id);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -2535,11 +2787,7 @@ function detailEBSI(code) {
 function closeEBSI() {
   document.getElementById("ebsiDetail").classList.add("hidden");
 }
-document.getElementById('internForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('internMsg').textContent =
-    'Simulasi berhasil. Data belum dikirim atau disimpan ke Vision.';
-});
+
 function filterAgents() {
   const q = document.getElementById('agentSearch').value.toLowerCase();
   let count = 0;
@@ -2558,20 +2806,7 @@ function openChat(name) {
     '. Belum terhubung ke agen nyata.</div>';
   showPage('chat');
 }
-document.getElementById('chatForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const input = document.getElementById('chatInput');
-  if (!input.value.trim()) return;
-  const msg = document.createElement('div');
-  msg.className = 'message mine';
-  msg.textContent = input.value;
-  document.getElementById('messages').appendChild(msg);
-  input.value = '';
-  const reply = document.createElement('div');
-  reply.className = 'message';
-  reply.textContent = 'Ini prototype. Pesan belum dikirim ke agen sungguhan.';
-  document.getElementById('messages').appendChild(reply);
-});
+
 document.querySelectorAll('section.page').forEach((section) => {
   if (section.id === 'home') return;
 
@@ -2633,19 +2868,6 @@ document.querySelectorAll('.transport-check').forEach(check => {
   check.addEventListener('change', updateTransportTotal);
 });
 
-document.getElementById('internForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('internMsg').textContent =
-    'Simulasi berhasil. Data belum dikirim atau disimpan ke Vision.';
-});
-
-document.getElementById('agentInterestForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  document.getElementById('agentInterestMsg').textContent =
-    'Simulasi berhasil. Data belum dikirim atau disimpan ke Vision.';
-});
-
 function showVisionComponent(component) {
   const components = {
     n: {
@@ -2703,6 +2925,8 @@ function showVisionYear(year) {
     return;
   }
 
+  renderVisionBars(year);
+
   yearLabel.textContent = 'PROYEKSI TAHUN ' + year;
   incomeValue.textContent = incomeData[year];
   description.textContent =
@@ -2717,6 +2941,442 @@ function showVisionYear(year) {
 
   if (buttons[year - 1]) {
     buttons[year - 1].classList.add('active');
+  }
+}
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(
+  '.home-section, .financial-system, .home-cta, .ecosystem-card, .feature-card, .system-card, .mission-item, .panel'
+).forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+function activatePage(id) {
+  const target = document.getElementById(id);
+  if (!target || !target.classList.contains('page')) return;
+  document.querySelectorAll('.page').forEach(p =>
+    p.classList.toggle('active', p.id === id)
+  );
+  window.scrollTo({ top: 0 });
+}
+
+window.addEventListener('popstate', () => {
+  activatePage(location.hash.replace('#', '') || 'home');
+});
+
+window.addEventListener('load', () => {
+  const id = location.hash.replace('#', '');
+  if (id) activatePage(id);
+});
+
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.classList.toggle('visible', window.scrollY > 400);
+});
+toTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const visionIncomeNumbers = [15, 35, 82, 291, 1100, 4500, 17900]; // juta
+
+function renderVisionBars(active) {
+  const wrap = document.getElementById('visionBars');
+  if (!wrap) return;
+  const max = Math.log10(visionIncomeNumbers[visionIncomeNumbers.length - 1]);
+  wrap.innerHTML = visionIncomeNumbers.map((v, i) => {
+    const h = Math.max(12, Math.log10(v) / max * 100);
+    return `<button type="button" class="vision-bar ${i + 1 === active ? 'active' : ''}"
+      onclick="showVisionYear(${i + 1})" aria-label="Tahun ${i + 1}">
+      <span class="vision-bar-fill" style="height:${h}%"></span>
+      <small>T${i + 1}</small></button>`;
+  }).join('');
+}
+renderVisionBars(1);
+
+const bspPaths = {
+  corporate: {
+    pros: [
+      'Struktur dan sistem sudah ada, jadi tinggal belajar dan mengikuti.',
+      'Stabilitas: income masuk setiap bulan.',
+      'Pengalaman dari senior dan kerja tim.',
+      'Networking, karena orang percaya pada nama perusahaan.'
+    ],
+    cons: [
+      'Pertumbuhan lewat sistem: ada salary band, budget, timing, dan siklus promosi.',
+      'Nilai yang kita ciptakan tidak selalu langsung berbanding lurus dengan income.',
+      'Kerja bisa terasa tanpa batas jam karena teknologi.',
+      'Waktu sama dengan income. Kalau tidak bisa bekerja, income akhirnya berhenti.',
+      'Naik jabatan berarti tim, target, dan tanggung jawab yang lebih besar.'
+    ]
+  },
+  bisnis: {
+    pros: [
+      'Ownership: keputusan ada di tangan sendiri.',
+      'Kebebasan dan kontrol lebih besar atas cara bekerja.',
+      'Potensi penghasilan tidak dibatasi grade gaji.',
+      'Kepuasan membangun sesuatu dari nol.'
+    ],
+    cons: [
+      'Capital: omset besar biasanya butuh modal besar.',
+      'People: merekrut, melatih, dan risiko ditinggalkan.',
+      'Operations: sistem dan trial and error harus dibangun sendiri.',
+      'Risk dan cash flow harus selalu dijaga.',
+      'Semua masalah (supplier, staf, penjualan, pajak) menjadi masalah pemilik.'
+    ]
+  }
+};
+
+function showBspPath(key) {
+  const data = bspPaths[key];
+  const box = document.getElementById('bspPath');
+  if (!data || !box) return;
+
+  box.innerHTML = `
+    <div class="bsp-col">
+      <h3>✅ Kelebihan</h3>
+      <ul>${data.pros.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="bsp-col">
+      <h3>⚖️ Harga yang dibayar</h3>
+      <ul>${data.cons.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>`;
+
+  document.querySelectorAll('.bsp-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.path === key)
+  );
+}
+showBspPath('corporate');
+
+// Isi nomor WhatsApp agen (format 62812xxxxxxx, tanpa + dan tanpa 0 di depan).
+// Isi hanya dengan nomor agen asli yang SUDAH memberi izin.
+const agentWA = {
+  'Agen Demo 01': '6281219792924',
+  'Agen Demo 02': '6285925964084',
+  'Agen Demo 03': '6283824332417'
+};
+
+function openWhatsApp(name, text) {
+  const num = agentWA[name];
+  if (!num) {
+    alert('Nomor WhatsApp untuk ' + name + ' belum diisi. Ini masih data demo.');
+    return;
+  }
+  window.open(
+    'https://wa.me/' + num + '?text=' + encodeURIComponent(text),
+    '_blank', 'noopener'
+  );
+}
+
+function setAgentArea(area, btn) {
+  document.getElementById('agentSearch').value = area;
+  filterAgents();
+  document.querySelectorAll('.agent-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+document.querySelectorAll('.agent').forEach(card => {
+  const name = card.querySelector('h3').textContent
+    .replace('👤', '').replace('Profil', '').trim();
+
+  const wrap = document.createElement('div');
+  wrap.className = 'agent-actions';
+
+  const chatBtn = card.querySelector('button');
+  wrap.appendChild(chatBtn);
+
+  const wa = document.createElement('button');
+  wa.type = 'button';
+  wa.className = 'btn btn-wa';
+  wa.textContent = 'WhatsApp';
+  wa.onclick = () => openWhatsApp(
+    name, 'Halo, saya melihat profil Anda di cariDOit dan ingin bertanya.'
+  );
+  wrap.appendChild(wa);
+
+  card.appendChild(wrap);
+});
+let lastChatText = '';
+
+const chatAnswers = {
+  'Apa itu Layar Biru Vision?':
+    'Layar Biru Vision adalah materi sistem bisnis yang menggambarkan tahapan perkembangan bisnis dan proyeksi income dalam perjalanan keagenan Vision. Kamu bisa melihatnya di halaman Layar Biru Vision.',
+  'Bagaimana jalur magang?':
+    'Tersedia posisi Business Executive, Web Developer, dan UI/UX Designer. Lihat detailnya di halaman Informasi Magang, lalu isi formulir minat.',
+  'Bagaimana menjadi agen?':
+    'Perjalanan agen dimulai dari Business Executive (BE), lalu bisa berkembang ke Business Partner (BP) sesuai persyaratan dan ketentuan Vision. Detail resminya perlu dikonfirmasi ke pihak Vision.',
+  'Apakah income pasti?':
+    'Tidak. Penghasilan agen berasal dari komisi atau kompensasi sesuai hasil dan ketentuan yang berlaku, bukan gaji tetap. Angka di Layar Biru adalah proyeksi, bukan jaminan.'
+};
+
+function addChatMsg(text, mine) {
+  const box = document.getElementById('messages');
+  const d = document.createElement('div');
+  d.className = 'message' + (mine ? ' mine' : '');
+
+  const p = document.createElement('span');
+  p.textContent = text;
+
+  const t = document.createElement('small');
+  t.className = 'msg-time';
+  t.textContent = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+  d.appendChild(p);
+  d.appendChild(t);
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+}
+
+function botReply(question) {
+  const box = document.getElementById('messages');
+  const typing = document.createElement('div');
+  typing.className = 'message typing';
+  typing.textContent = 'Mengetik…';
+  box.appendChild(typing);
+  box.scrollTop = box.scrollHeight;
+
+  setTimeout(() => {
+    typing.remove();
+    addChatMsg(
+      chatAnswers[question] ||
+      'Pertanyaan ini akan dijawab langsung oleh agen. Klik tombol "Lanjutkan ke WhatsApp" di bawah supaya pesanmu terkirim ke agen.',
+      false
+    );
+  }, 700);
+}
+
+document.getElementById('chatForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  addChatMsg(text, true);
+  lastChatText = text;
+  input.value = '';
+  botReply(text);
+});
+
+const quickBox = document.getElementById('quickReplies');
+Object.keys(chatAnswers).forEach(q => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'quick-reply';
+  b.textContent = q;
+  b.onclick = () => { lastChatText = q; addChatMsg(q, true); botReply(q); };
+  quickBox.appendChild(b);
+});
+
+function continueOnWhatsApp() {
+  const name = document.getElementById('chatTarget').textContent
+    .replace('·', '').replace('(demo)', '').trim();
+  openWhatsApp(
+    name,
+    lastChatText || 'Halo, saya ingin bertanya tentang peluang Vision.'
+  );
+}
+
+const pageNames = {
+  ebsi: 'Cashflow Quadrant', layar: 'Layar Biru Vision', bsp: 'Ringkasan BSP',
+  jalur: 'Pilih Jalur', agen: 'Cari Agen', chat: 'Chat Agen',
+  intern: 'Informasi Magang', bisnis: 'Business Opportunity'
+};
+const pageStack = [];
+const originalShowPage = showPage;
+
+showPage = function (id) {
+  const current = document.querySelector('.page.active');
+  if (current && current.id !== id) pageStack.push(current.id);
+  originalShowPage(id);
+  updateBackButtons();
+};
+
+function goBackPage() {
+  const prev = pageStack.pop();
+  originalShowPage(prev || 'home');
+  updateBackButtons();
+}
+
+function updateBackButtons() {
+  const prev = pageStack[pageStack.length - 1];
+  document.querySelectorAll('.back-prev').forEach(b => {
+    if (prev && prev !== 'home') {
+      b.textContent = '← Kembali ke ' + (pageNames[prev] || 'halaman sebelumnya');
+      b.classList.remove('hidden');
+    } else {
+      b.classList.add('hidden');
+    }
+  });
+}
+
+document.querySelectorAll('section.page').forEach(section => {
+  if (section.id === 'home') return;
+  const c = section.querySelector('.container');
+  if (!c) return;
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'back-home back-prev hidden';
+  b.onclick = goBackPage;
+  c.prepend(b);
+});
+const ENDPOINT_MAGANG = 'https://formspree.io/f/xppqvgpn';
+const ENDPOINT_AGEN   = 'https://formspree.io/f/mjygnqwg';
+
+async function kirimForm(form, endpoint, pesanEl, pesanSukses) {
+  if (endpoint.includes('GANTI')) {
+    pesanEl.textContent = 'Alamat Formspree belum diisi di kode.';
+    return false;
+  }
+  const btn = form.querySelector('button[type="submit"]');
+  const teksAsal = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Mengirim…';
+  pesanEl.textContent = '';
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      body: (() => { const f = new FormData(form); f.delete('cv'); f.delete('portofolio_file'); return f; })(),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (!res.ok) throw new Error('gagal');
+    form.reset();
+    pesanEl.textContent = pesanSukses;
+    return true;
+  } catch (err) {
+    pesanEl.textContent = 'Maaf, data belum terkirim. Periksa koneksi lalu coba lagi.';
+    return false;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = teksAsal;
+  }
+}
+
+function setInternStep(n) {
+  document.querySelectorAll('.intern-step').forEach(s => {
+    const i = Number(s.dataset.step);
+    s.classList.toggle('done', i <= n);
+    s.classList.toggle('current', i === n + 1);
+  });
+}
+setInternStep(1);
+
+const originalSelectPosition = selectInternPosition;
+selectInternPosition = function (p) {
+  originalSelectPosition(p);
+  setInternStep(2);
+};
+
+document.querySelector('#internForm [name="bidang"]')
+  .addEventListener('change', e => setInternStep(e.target.value ? 2 : 1));
+
+function bacaBerkas(file) {
+  return new Promise(resolve => {
+    if (!file || !file.size) return resolve(null);
+    const r = new FileReader();
+    r.onload = () => resolve({ nama: file.name, tipe: file.type, data: String(r.result).split(',')[1] });
+    r.onerror = () => resolve(null);
+    r.readAsDataURL(file);
+  });
+}
+
+async function catatStatus(fd) {
+  if (STATUS_URL.includes('GANTI')) return;
+  const cv = await bacaBerkas(fd.get('cv'));
+  const porto = await bacaBerkas(fd.get('portofolio_file'));
+  const body = new URLSearchParams({
+    email: fd.get('email') || '',
+    nama: fd.get('nama') || '',
+    posisi: fd.get('bidang') || '',
+    pendidikan: fd.get('pendidikan') || '',
+    portolink: fd.get('portofolio') || ''
+  });
+  if (cv) { body.set('cv_nama', cv.nama); body.set('cv_tipe', cv.tipe); body.set('cv_data', cv.data); }
+  if (porto) { body.set('porto_nama', porto.nama); body.set('porto_tipe', porto.tipe); body.set('porto_data', porto.data); }
+  fetch(STATUS_URL, { method: 'POST', mode: 'no-cors', body }).catch(() => {});
+}
+
+function cekBerkas(form) {
+  const MAKS = 2 * 1024 * 1024;
+  const cv = form.querySelector('[name="cv"]').files[0];
+  const porto = form.querySelector('[name="portofolio_file"]').files[0];
+  const linkPorto = form.querySelector('[name="portofolio"]').value.trim();
+  const posisi = form.querySelector('[name="bidang"]').value;
+  if (!cv) return 'CV wajib diunggah.';
+  if (cv.size > MAKS) return 'Ukuran CV melebihi 2 MB.';
+  if (porto && porto.size > MAKS) return 'Ukuran portofolio melebihi 2 MB.';
+  if ((posisi === 'Web Developer' || posisi === 'UI/UX Designer') && !porto && !linkPorto) {
+    return 'Untuk posisi ini, portofolio wajib diisi (unggah file atau tulis tautannya).';
+  }
+  return '';
+}
+
+document.getElementById('internForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const pesan = document.getElementById('internMsg');
+  const err = cekBerkas(this);
+  if (err) { pesan.textContent = err; return; }
+
+  const dataForm = new FormData(this);   // diambil sebelum form di-reset
+  const ok = await kirimForm(
+    this, ENDPOINT_MAGANG, pesan,
+    'Terima kasih! Minatmu sudah terkirim. Tunggu arahan dari penyelenggara melalui email.'
+  );
+  if (ok) {
+    catatStatus(dataForm);
+    setInternStep(3);
+  }
+});
+
+document.getElementById('agentInterestForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  await kirimForm(
+    this, ENDPOINT_AGEN, document.getElementById('agentInterestMsg'),
+    'Terima kasih! Minatmu sudah terkirim. Pihak penyelenggara akan menghubungimu.'
+  );
+});
+
+const STATUS_URL = 'https://script.google.com/macros/s/AKfycbxE3ierYnrWY_DQzXJpZKxKOTNqadoHjqXi20sd5g7g1j1kBvO4ldMUlLj4V3ewjDHB/exec';
+
+const statusInfo = {
+  'terkirim':       { step: 3, text: 'Formulirmu sudah kami terima. Tunggu proses seleksi berkas.' },
+  'seleksi berkas': { step: 4, text: 'Berkasmu sedang diseleksi oleh penyelenggara.' },
+  'interview':      { step: 5, text: 'Kamu masuk tahap interview. Cek email untuk jadwalnya.' },
+  'lolos':          { step: 6, text: 'Selamat, kamu dinyatakan lolos! Tunggu arahan untuk mulai magang.' },
+  'mulai magang':   { step: 7, text: 'Selamat bergabung di program magang!' },
+  'tidak lolos':    { step: 6, text: 'Terima kasih sudah mendaftar. Untuk kali ini kamu belum lolos. Kamu boleh mendaftar lagi di kesempatan berikutnya.' }
+};
+
+async function cekStatus() {
+  const email = document.getElementById('statusEmail').value.trim();
+  const msg = document.getElementById('statusMsg');
+  const btn = document.getElementById('statusBtn');
+
+  if (!email) { msg.textContent = 'Isi email dulu.'; return; }
+  if (STATUS_URL.includes('GANTI')) { msg.textContent = 'URL status belum diisi di kode.'; return; }
+
+  btn.disabled = true;
+  msg.textContent = 'Mengecek…';
+  try {
+    const res = await fetch(STATUS_URL + '?email=' + encodeURIComponent(email));
+    const data = await res.json();
+    if (!data.found) {
+      msg.textContent = 'Email ini belum ditemukan. Pastikan sama dengan yang dipakai di formulir. Data baru bisa butuh waktu untuk tampil.';
+      return;
+    }
+    const info = statusInfo[data.status.toLowerCase()];
+    if (!info) { msg.textContent = 'Status: ' + data.status; return; }
+    setInternStep(info.step);
+    msg.textContent = info.text + (data.note ? ' Catatan: ' + data.note : '');
+  } catch (err) {
+    msg.textContent = 'Maaf, status belum bisa dicek. Coba lagi nanti.';
+  } finally {
+    btn.disabled = false;
   }
 }
 </script>
