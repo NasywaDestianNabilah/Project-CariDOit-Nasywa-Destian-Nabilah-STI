@@ -2368,6 +2368,15 @@ footer a { display: block; margin: 6px 0; }
         </div>
 
         <div class="form-field">
+          <label>Status kuliah</label>
+          <select name="status_kuliah" required>
+            <option value="">Pilih status</option>
+            <option value="Mahasiswa aktif">Mahasiswa aktif</option>
+            <option value="Bukan mahasiswa">Bukan mahasiswa / sudah lulus</option>
+          </select>
+        </div>
+
+        <div class="form-field">
           <label>Latar belakang pendidikan</label>
           <input name="pendidikan"
             placeholder="Contoh: Sistem Teknologi Informasi">
@@ -3341,7 +3350,7 @@ document.getElementById('agentInterestForm').addEventListener('submit', async fu
   );
 });
 
-const STATUS_URL = 'https://script.google.com/macros/s/AKfycbxE3ierYnrWY_DQzXJpZKxKOTNqadoHjqXi20sd5g7g1j1kBvO4ldMUlLj4V3ewjDHB/exec';
+const STATUS_URL = 'https://script.google.com/macros/s/AKfycbw4SYOc0YzcAzEpuZdzQDbqcljbQ_9qeCJALGTj4nSBYI-tdDYp0b-WXZw3AAUUMvlA/exec';
 
 const statusInfo = {
   'terkirim':       { step: 3, text: 'Formulirmu sudah kami terima. Tunggu proses seleksi berkas.' },
