@@ -1287,6 +1287,29 @@ footer a { display: block; margin: 6px 0; }
 
 .form-field input[type="file"]{padding:10px;background:#fff}
 .file-hint{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+
+.fl-trigger{position:fixed;bottom:24px;right:80px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;border:3px solid #fff;box-shadow:0 8px 24px rgba(23,105,210,.35);z-index:1000}
+.fl-window{position:fixed;bottom:90px;right:24px;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:#fff;border-radius:20px;border:1px solid #dce7f5;box-shadow:0 18px 40px rgba(18,53,107,.22);display:flex;flex-direction:column;overflow:hidden;z-index:1001;opacity:0;transform:translateY(20px) scale(.95);pointer-events:none;transition:opacity .25s,transform .25s}
+.fl-window.open{opacity:1;transform:none;pointer-events:auto}
+.fl-header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.fl-header h4{margin:0;font-size:15px}
+.fl-header small{font-size:11px;color:#b9d8ff}
+.fl-close{background:rgba(255,255,255,.18);border:0;color:#fff;width:30px;height:30px;border-radius:50%}
+.fl-body{flex:1;overflow-y:auto;padding:16px;background:#f8fbff;display:flex;flex-direction:column;gap:10px}
+.fl-body .message{padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5;max-width:85%;margin:0;word-wrap:break-word}
+.fl-body .message:not(.mine){background:#fff;border:1px solid #e2e8f0;color:#1e293b;align-self:flex-start}
+.fl-body .message.mine{background:var(--blue);color:#fff;align-self:flex-end;margin-left:0}
+.fl-body .message.mine .msg-time{color:#dbeafe}
+.fl-quick{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;background:#fff;border-top:1px solid #eef2f7}
+.fl-quick button{white-space:nowrap;font-size:12px;padding:6px 11px;border-radius:16px;background:#eef5ff;color:var(--blue);border:1px solid #d4e4fa;font-weight:600}
+.fl-quick button:hover{background:var(--blue);color:#fff}
+.fl-wa{padding:8px 14px;background:#f1fbf5;border-top:1px dashed #bcf0d3;display:flex;justify-content:center}
+.fl-wa button{background:#25d366;color:#033f20;border:0;font-size:12px;font-weight:bold;padding:7px 14px;border-radius:14px}
+.fl-form{padding:10px 12px;background:#fff;border-top:1px solid #e5eaf2;display:flex;gap:8px}
+.fl-form input{flex:1;padding:9px 12px;border:1px solid #d4deeb;border-radius:20px;font-size:13px}
+.fl-form button{background:var(--blue);color:#fff;border:0;width:36px;height:36px;border-radius:50%}
+
+#statusMsgAgen{margin:12px 0 0;font-weight:bold;color:var(--navy)}
 </style>
 </head>
 
@@ -1332,12 +1355,6 @@ footer a { display: block; margin: 6px 0; }
           </a>
           <a href="#jalur" onclick="showPage('jalur'); return false;">
             Pilih Jalur
-          </a>
-          <a href="#agen" onclick="showPage('agen'); return false;">
-            Cari Agen
-          </a>
-          <a href="#chat" onclick="showPage('chat'); return false;">
-            Chat Agen
           </a>
           <a href="#intern" onclick="showPage('intern'); return false;">
             Informasi Magang
@@ -2062,10 +2079,6 @@ footer a { display: block; margin: 6px 0; }
     <div class="bsp-stat"><strong>Rp6 juta → ±Rp27 juta</strong><p>Hitungan pembicara untuk gaji awal 2010 jika naik 10% per tahun.</p></div>
     <div class="bsp-stat"><strong>88%</strong><p>Bisnis keluarga yang gagal suksesi bila penerus tidak paham cash flow, menurut pembicara.</p></div>
   </div>
-  <div class="notice">
-    Angka di atas disebutkan pembicara dalam sesi dan dirangkum dari
-    transkrip. Sumber aslinya perlu diverifikasi sebelum dijadikan acuan.
-  </div>
 </div>
 
 <!-- ===== BSP: CERITA PENGALAMAN ===== -->
@@ -2275,11 +2288,6 @@ footer a { display: block; margin: 6px 0; }
           <li>Prototyping dan evaluasi desain.</li>
         </ul>
       </details>
-
-      <p class="notice">
-        Materi ini merupakan gambaran awal, bukan kurikulum
-        resmi Vision yang sudah dikonfirmasi.
-      </p>
     </div>
 
     <!-- 5. PERSYARATAN -->
@@ -2302,10 +2310,6 @@ footer a { display: block; margin: 6px 0; }
           Berlatar belakang IT dan memiliki pengalaman relevan.
         </li>
       </ul>
-      <p>
-        Persyaratan tambahan, durasi, jadwal, dan mekanisme seleksi
-        perlu mengikuti informasi resmi dari Vision.
-      </p>
     </div>
 
     <!-- 6. ALUR PENDAFTARAN -->
@@ -2317,10 +2321,6 @@ footer a { display: block; margin: 6px 0; }
         <li>Isi formulir minat dengan data yang benar.</li>
         <li>Ikuti arahan penyelenggara mengenai tahap berikutnya.</li>
       </ol>
-      <p class="notice">
-        Tahapan di atas merupakan gambaran awal dan perlu
-        disesuaikan dengan prosedur resmi Vision.
-      </p>
     </div>
 
     <!-- 7. FORMULIR MINAT -->
@@ -2383,25 +2383,16 @@ footer a { display: block; margin: 6px 0; }
         </div>
   
         <div class="form-field">
-          <label for="internPortfolio">Pengalaman atau portofolio</label>
-          <textarea
-            id="internPortfolio"
-            name="portofolio"
-            rows="4"
-            placeholder="Ceritakan pengalaman atau tempel tautan portofolio"
-          ></textarea>
+          <label for="internPortfolio">Tautan portofolio</label>
+          <input id="internPortfolio" name="portofolio" type="url"
+            placeholder="https://drive.google.com/... (Google Drive, Figma, Behance, GitHub)">
+          <small class="file-hint">Wajib untuk Web Developer dan UI/UX Designer. Unggah portofolio ke Google Drive, atur akses ke "Siapa saja yang memiliki link", lalu tempel tautannya di sini.</small>
         </div>
 
         <div class="form-field">
           <label for="internCv">Unggah CV</label>
           <input id="internCv" name="cv" type="file" accept=".pdf,.docx,image/jpeg,image/png" required>
           <small class="file-hint">Format PDF, DOCX, JPG, atau PNG. Maksimal 2 MB.</small>
-        </div>
-
-        <div class="form-field">
-          <label for="internPortoFile">Unggah portofolio</label>
-          <input id="internPortoFile" name="portofolio_file" type="file" accept=".pdf,.docx,image/jpeg,image/png">
-          <small class="file-hint">Wajib untuk Web Developer dan UI/UX Designer (boleh file atau tautan di kotak di atas). Maksimal 2 MB.</small>
         </div>
 
         <div class="form-field">
@@ -2536,12 +2527,6 @@ footer a { display: block; margin: 6px 0; }
     Business Partner (BP), yang berfokus pada pengembangan tim
     dan bisnis sesuai ketentuan Vision.
   </p>
-
-  <div class="notice">
-    Angka pada gambar merupakan proyeksi dalam materi Vision,
-    bukan jaminan penghasilan. Dasar perhitungan, asumsi,
-    dan persyaratan promosi perlu dikonfirmasi kepada penyelenggara.
-  </div>
 </div>
 
 <!-- 5. PERSYARATAN -->
@@ -2570,6 +2555,26 @@ footer a { display: block; margin: 6px 0; }
     Isi formulir minat untuk mempelajari informasi lebih lanjut
     mengenai peluang bisnis agen melalui Vision.
   </p>
+
+  <div class="intern-steps" id="agenSteps">
+  <div class="intern-step" data-step="1"><span>1</span><p>Pahami peluang</p></div>
+  <div class="intern-step" data-step="2"><span>2</span><p>Isi formulir</p></div>
+  <div class="intern-step" data-step="3"><span>3</span><p>Minat terkirim</p></div>
+  <div class="intern-step" data-step="4"><span>4</span><p>Seleksi</p></div>
+  <div class="intern-step" data-step="5"><span>5</span><p>Interview</p></div>
+  <div class="intern-step" data-step="6"><span>6</span><p>Pengumuman hasil</p></div>
+  <div class="intern-step" data-step="7"><span>7</span><p>Mulai jadi agen</p></div>
+</div>
+
+<div class="status-box">
+  <h3>Cek Status Pendaftaran Agen</h3>
+  <p>Sudah mengisi formulir? Masukkan email yang kamu pakai.</p>
+  <div class="status-row">
+    <input id="statusEmailAgen" type="email" placeholder="nama@email.com">
+    <button type="button" class="btn primary" id="statusBtnAgen" onclick="cekStatusAgen()">Cek Status</button>
+  </div>
+  <p id="statusMsgAgen"></p>
+</div>
 
   <form id="agentInterestForm">
     <div class="form-field">
@@ -2602,33 +2607,11 @@ footer a { display: block; margin: 6px 0; }
     </div>
 
     <button class="btn primary" type="submit">
-      Kirim Minat (Demo)
+      Kirim Minat
     </button>
     <p id="agentInterestMsg"></p>
   </form>
-
-  <small>
-    Formulir ini masih berupa demo. Data belum dikirim
-    ke Vision atau Allianz.
-  </small>
 </div>
-</div></section>
-
-<section id="agen" class="page"><div class="container">
-  <div class="page-head"><span class="tag">CONNECT</span><h1>Cari Agen</h1><p>Profil di bawah hanya contoh prototype. Ganti dengan data agen yang benar dan sudah mendapat izin.</p></div>
-  <div class="search"><input id="agentSearch" placeholder="Cari nama atau area agen"><button class="btn primary" onclick="filterAgents()">Cari</button></div>
-  <div class="agent-chips" id="agentChips">
-  <button type="button" class="agent-chip active" onclick="setAgentArea('', this)">Semua</button>
-  <button type="button" class="agent-chip" onclick="setAgentArea('jakarta', this)">Jakarta</button>
-  <button type="button" class="agent-chip" onclick="setAgentArea('bekasi', this)">Bekasi</button>
-  <button type="button" class="agent-chip" onclick="setAgentArea('online', this)">Online</button>
-</div>
-  <div class="grid" id="agents">
-    <div class="card agent" data-key="demo jakarta"><h3>👤 Profil Agen Demo 01</h3><p>Area: Jakarta<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 01')">Chat</button></div>
-    <div class="card agent" data-key="demo bekasi"><h3>👤 Profil Agen Demo 02</h3><p>Area: Bekasi<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 02')">Chat</button></div>
-    <div class="card agent" data-key="demo online"><h3>👤 Profil Agen Demo 03</h3><p>Area: Online<br>Data contoh, bukan kontak nyata.</p><button class="btn secondary" onclick="openChat('Agen Demo 03')">Chat</button></div>
-  </div>
-  <p id="empty" class="hidden">Profil tidak ditemukan.</p>
 </div></section>
 
 <section id="chat" class="page"><div class="container">
@@ -2643,8 +2626,39 @@ footer a { display: block; margin: 6px 0; }
 </div></section>
 </main>
 
-<footer><div class="container"><h2>cari<span style="color:var(--orange)">DO</span>it</h2><p>Kenali materi Vision, pilihan karier, dan informasi peluang.</p><a href="#ebsi" onclick="showPage('ebsi')">Explore EBSI</a><a href="#bisnis" onclick="showPage('bisnis')">Vision Business System</a><a href="#layar" onclick="showPage('layar')">Layar Biru Vision</a><a href="#intern" onclick="showPage('intern')">Jalur Intern</a><a href="#bisnis" onclick="showPage('bisnis')">Business Opportunity</a><small>Prototype website · Login, form, chat, dan data agen belum terhubung ke sistem nyata.</small></div></footer>
+<footer><div class="container"><h2>cari<span style="color:var(--orange)">DO</span>it</h2><p>Kenali materi Vision, pilihan karier, dan informasi peluang.</p><a href="#ebsi" onclick="showPage('ebsi')">Cashflow Quadrant</a><a href="#layar" onclick="showPage('layar')">Layar Biru Vision</a><a href="#intern" onclick="showPage('intern')">Informasi Magang</a><a href="#bisnis" onclick="showPage('bisnis')">Business Opportunity</a><small>© 2026 cariDOit. All rights reserved.</small></div></footer>
 
+<button type="button" class="fl-trigger" id="flTrigger" onclick="toggleFl()" aria-label="Buka chat">💬</button>
+
+<div class="fl-window" id="flWindow">
+  <div class="fl-header">
+    <div>
+      <h4>Asisten cariDOit</h4>
+      <small>Siap membantu</small>
+    </div>
+    <button type="button" class="fl-close" onclick="toggleFl()" aria-label="Tutup chat">✕</button>
+  </div>
+
+  <div class="fl-body" id="flBody">
+    <div class="message">Halo! Ada yang ingin kamu tanyakan tentang program magang, Layar Biru, atau peluang menjadi agen?</div>
+  </div>
+
+  <div class="fl-quick">
+    <button type="button" onclick="flQuick('Info program magang')">🎓 Magang</button>
+    <button type="button" onclick="flQuick('Apa itu Layar Biru Vision?')">📊 Layar Biru</button>
+    <button type="button" onclick="flQuick('Bagaimana cara jadi agen?')">💼 Jadi Agen</button>
+    <button type="button" onclick="flQuick('Penjelasan Cashflow Quadrant')">💰 Quadrant</button>
+  </div>
+
+  <div class="fl-wa">
+    <button type="button" onclick="openWhatsApp('Demo', 'Halo, saya ingin bertanya lewat WhatsApp.')">📲 Lanjut chat WhatsApp</button>
+  </div>
+
+  <form class="fl-form" id="flForm">
+    <input id="flInput" placeholder="Ketik pertanyaan..." autocomplete="off" required>
+    <button type="submit" aria-label="Kirim">➤</button>
+  </form>
+</div>
 <button id="toTop" class="to-top" type="button" aria-label="Kembali ke atas">↑</button>
 
 <script>
@@ -2795,25 +2809,6 @@ function detailEBSI(code) {
 
 function closeEBSI() {
   document.getElementById("ebsiDetail").classList.add("hidden");
-}
-
-function filterAgents() {
-  const q = document.getElementById('agentSearch').value.toLowerCase();
-  let count = 0;
-  document.querySelectorAll('.agent').forEach(a => {
-    const show = (a.dataset.key + a.innerText).toLowerCase().includes(q);
-    a.classList.toggle('hidden', !show);
-    if (show) count++;
-  });
-  document.getElementById('empty').classList.toggle('hidden', count > 0);
-}
-document.getElementById('agentSearch').addEventListener('input', filterAgents);
-function openChat(name) {
-  document.getElementById('chatTarget').textContent = '· ' + name + ' (demo)';
-  document.getElementById('messages').innerHTML =
-    '<div class="message">Percakapan demo dengan ' + name +
-    '. Belum terhubung ke agen nyata.</div>';
-  showPage('chat');
 }
 
 document.querySelectorAll('section.page').forEach((section) => {
@@ -3067,9 +3062,8 @@ showBspPath('corporate');
 // Isi nomor WhatsApp agen (format 62812xxxxxxx, tanpa + dan tanpa 0 di depan).
 // Isi hanya dengan nomor agen asli yang SUDAH memberi izin.
 const agentWA = {
+  'Demo': '6281219792924',
   'Agen Demo 01': '6281219792924',
-  'Agen Demo 02': '6281234567890',
-  'Agen Demo 03': '6281234567891'
 };
 
 function openWhatsApp(name, text) {
@@ -3084,34 +3078,6 @@ function openWhatsApp(name, text) {
   );
 }
 
-function setAgentArea(area, btn) {
-  document.getElementById('agentSearch').value = area;
-  filterAgents();
-  document.querySelectorAll('.agent-chip').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-document.querySelectorAll('.agent').forEach(card => {
-  const name = card.querySelector('h3').textContent
-    .replace('👤', '').replace('Profil', '').trim();
-
-  const wrap = document.createElement('div');
-  wrap.className = 'agent-actions';
-
-  const chatBtn = card.querySelector('button');
-  wrap.appendChild(chatBtn);
-
-  const wa = document.createElement('button');
-  wa.type = 'button';
-  wa.className = 'btn btn-wa';
-  wa.textContent = 'WhatsApp';
-  wa.onclick = () => openWhatsApp(
-    name, 'Halo, saya melihat profil Anda di cariDOit dan ingin bertanya.'
-  );
-  wrap.appendChild(wa);
-
-  card.appendChild(wrap);
-});
 let lastChatText = '';
 
 const chatAnswers = {
@@ -3250,7 +3216,7 @@ async function kirimForm(form, endpoint, pesanEl, pesanSukses) {
   try {
     const res = await fetch(endpoint, {
       method: 'POST',
-      body: (() => { const f = new FormData(form); f.delete('cv'); f.delete('portofolio_file'); return f; })(),
+      body: (() => { const f = new FormData(form); f.delete('cv'); return f; })(),
       headers: { 'Accept': 'application/json' }
     });
     if (!res.ok) throw new Error('gagal');
@@ -3267,7 +3233,7 @@ async function kirimForm(form, endpoint, pesanEl, pesanSukses) {
 }
 
 function setInternStep(n) {
-  document.querySelectorAll('.intern-step').forEach(s => {
+  document.querySelectorAll('#internSteps .intern-step').forEach(s => {
     const i = Number(s.dataset.step);
     s.classList.toggle('done', i <= n);
     s.classList.toggle('current', i === n + 1);
@@ -3311,16 +3277,17 @@ async function catatStatus(fd) {
 }
 
 function cekBerkas(form) {
-  const MAKS = 2 * 1024 * 1024;
+  const MAKS = 5 * 1024 * 1024;
   const cv = form.querySelector('[name="cv"]').files[0];
-  const porto = form.querySelector('[name="portofolio_file"]').files[0];
   const linkPorto = form.querySelector('[name="portofolio"]').value.trim();
   const posisi = form.querySelector('[name="bidang"]').value;
   if (!cv) return 'CV wajib diunggah.';
-  if (cv.size > MAKS) return 'Ukuran CV melebihi 2 MB.';
-  if (porto && porto.size > MAKS) return 'Ukuran portofolio melebihi 2 MB.';
-  if ((posisi === 'Web Developer' || posisi === 'UI/UX Designer') && !porto && !linkPorto) {
-    return 'Untuk posisi ini, portofolio wajib diisi (unggah file atau tulis tautannya).';
+  if (cv.size > MAKS) return 'Ukuran CV ' + (cv.size / 1048576).toFixed(1) + ' MB, melebihi batas 5 MB.';
+  if ((posisi === 'Web Developer' || posisi === 'UI/UX Designer') && !linkPorto) {
+    return 'Untuk posisi ini, tautan portofolio wajib diisi.';
+  }
+  if (linkPorto && !/^https?:\/\//i.test(linkPorto)) {
+    return 'Tautan portofolio harus diawali http:// atau https://';
   }
   return '';
 }
@@ -3342,15 +3309,75 @@ document.getElementById('internForm').addEventListener('submit', async function 
   }
 });
 
+function setAgenStep(n) {
+  document.querySelectorAll('#agenSteps .intern-step').forEach(s => {
+    const i = Number(s.dataset.step);
+    s.classList.toggle('done', i <= n);
+    s.classList.toggle('current', i === n + 1);
+  });
+}
+setAgenStep(1);
+
+function catatAgen(fd) {
+  const body = new URLSearchParams({
+    email: fd.get('email') || '',
+    nama: fd.get('nama') || '',
+    whatsapp: fd.get('whatsapp') || '',
+    minat: fd.get('minat') || ''
+  });
+  fetch(STATUS_URL_AGEN, { method: 'POST', mode: 'no-cors', body }).catch(() => {});
+}
+
 document.getElementById('agentInterestForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-  await kirimForm(
+  const dataForm = new FormData(this);   // diambil sebelum form di-reset
+  const ok = await kirimForm(
     this, ENDPOINT_AGEN, document.getElementById('agentInterestMsg'),
-    'Terima kasih! Minatmu sudah terkirim. Pihak penyelenggara akan menghubungimu.'
+    'Terima kasih! Minatmu sudah terkirim. Pantau statusnya lewat Cek Status Pendaftaran Agen.'
   );
+  if (ok) {
+    catatAgen(dataForm);
+    setAgenStep(3);
+  }
 });
 
+const statusInfoAgen = {
+  'terkirim':       { step: 3, text: 'Minatmu sudah kami terima. Tunggu proses seleksi.' },
+  'seleksi berkas': { step: 4, text: 'Data kamu sedang diseleksi oleh penyelenggara.' },
+  'interview':      { step: 5, text: 'Kamu masuk tahap interview. Cek WhatsApp untuk jadwalnya.' },
+  'lolos':          { step: 6, text: 'Selamat, kamu dinyatakan lolos! Tunggu arahan untuk langkah berikutnya.' },
+  'mulai magang':   { step: 7, text: 'Selamat bergabung sebagai agen! Penghasilan agen berasal dari komisi sesuai hasil dan ketentuan yang berlaku, bukan gaji tetap.' },
+  'tidak lolos':    { step: 6, text: 'Terima kasih sudah berminat. Untuk saat ini kamu belum lolos. Kamu boleh mendaftar lagi di kesempatan berikutnya.' }
+};
+
+async function cekStatusAgen() {
+  const email = document.getElementById('statusEmailAgen').value.trim();
+  const msg = document.getElementById('statusMsgAgen');
+  const btn = document.getElementById('statusBtnAgen');
+  if (!email) { msg.textContent = 'Isi email dulu.'; return; }
+
+  btn.disabled = true;
+  msg.textContent = 'Mengecek…';
+  try {
+    const res = await fetch(STATUS_URL_AGEN + '?email=' + encodeURIComponent(email));
+    const data = await res.json();
+    if (!data.found) {
+      msg.textContent = 'Email ini belum ditemukan. Pastikan sama dengan yang dipakai di formulir.';
+      return;
+    }
+    const info = statusInfoAgen[data.status.toLowerCase()];
+    if (!info) { msg.textContent = 'Status: ' + data.status; return; }
+    setAgenStep(info.step);
+    msg.textContent = info.text + (data.note ? ' Catatan: ' + data.note : '');
+  } catch (err) {
+    msg.textContent = 'Maaf, status belum bisa dicek. Coba lagi nanti.';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 const STATUS_URL = 'https://script.google.com/macros/s/AKfycbw4SYOc0YzcAzEpuZdzQDbqcljbQ_9qeCJALGTj4nSBYI-tdDYp0b-WXZw3AAUUMvlA/exec';
+const STATUS_URL_AGEN = 'https://script.google.com/macros/s/AKfycbxb4ymIwy3d8txWza5Z3aeIfZ0P11BBs1HErFsDkgZRJSM_lW-ipwiOhoTrBR58af4vzQ/exec';
 
 const statusInfo = {
   'terkirim':       { step: 3, text: 'Formulirmu sudah kami terima. Tunggu proses seleksi berkas.' },
@@ -3388,6 +3415,74 @@ async function cekStatus() {
     btn.disabled = false;
   }
 }
+
+const flKb = {
+  'magang': 'Program Magang Vision punya 3 posisi: Business Executive (semua jurusan), Web Developer, dan UI/UX Designer (jurusan IT). Magang khusus mahasiswa aktif. Benefit: sertifikat, uang transport Rp50.000 per zona waktu, networking, dan portofolio.',
+  'posisi': 'Tersedia Business Executive (semua jurusan, tanpa pengalaman), Web Developer, dan UI/UX Designer (keduanya untuk jurusan IT).',
+  'transport': 'Uang transportasi Rp50.000 untuk setiap zona waktu yang diikuti (Pagi, Siang, Malam). Kamu bisa mencoba simulasinya di halaman Informasi Magang.',
+  'layar biru': 'Layar Biru Vision adalah materi sistem bisnis keagenan yang menggambarkan tahapan perkembangan dan proyeksi income. Angkanya proyeksi, bukan jaminan penghasilan.',
+  'agen': 'Perjalanan agen dimulai dari Business Executive (BE), lalu bisa berkembang ke Business Partner (BP) sesuai ketentuan Vision. Untuk detail resmi, lanjutkan lewat tombol WhatsApp.',
+  'quadrant': 'Cashflow Quadrant (Robert Kiyosaki) membagi sumber penghasilan jadi 4: E (Employee), S (Self-Employed), B (Business Owner), dan I (Investor). Lihat halaman Cashflow Quadrant.',
+  'ebsi': 'EBSI adalah singkatan dari 4 kuadran: Employee, Self-Employed, Business Owner, dan Investor. Lihat halaman Cashflow Quadrant.',
+  'cci': 'Cashflow Club Indonesia (CCI) adalah komunitas yang mempertemukan orang-orang yang ingin belajar dan bertumbuh secara finansial.',
+  'aturdoit': 'aturDOit adalah platform digital untuk membantu mengelola keuangan secara lebih terstruktur.',
+  'halo': 'Halo! Silakan tanyakan seputar program magang, peluang agen, atau materi di cariDOit.',
+  'terima kasih': 'Sama-sama! Kalau ada yang ingin ditanyakan lagi, tanya saja 😊'
+};
+
+const flBody = document.getElementById('flBody');
+const flWindow = document.getElementById('flWindow');
+
+function toggleFl() {
+  const open = flWindow.classList.toggle('open');
+  if (open) document.getElementById('flInput').focus();
+}
+
+function flAdd(text, mine) {
+  const d = document.createElement('div');
+  d.className = 'message' + (mine ? ' mine' : '');
+  const s = document.createElement('span');
+  s.textContent = text;
+  const t = document.createElement('small');
+  t.className = 'msg-time';
+  t.textContent = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+  d.appendChild(s);
+  d.appendChild(t);
+  flBody.appendChild(d);
+  flBody.scrollTop = flBody.scrollHeight;
+}
+
+function flReply(q) {
+  const typing = document.createElement('div');
+  typing.className = 'message';
+  typing.style.fontStyle = 'italic';
+  typing.textContent = 'Mengetik…';
+  flBody.appendChild(typing);
+  flBody.scrollTop = flBody.scrollHeight;
+
+  setTimeout(() => {
+    typing.remove();
+    const low = q.toLowerCase();
+    let jawab = 'Terima kasih atas pertanyaannya! Untuk jawaban yang lebih lengkap, lanjutkan lewat tombol WhatsApp di bawah.';
+    for (const k in flKb) {
+      if (low.includes(k)) { jawab = flKb[k]; break; }
+    }
+    flAdd(jawab, false);
+  }, 600);
+}
+
+function flQuick(q) { flAdd(q, true); lastChatText = q; flReply(q); }
+
+document.getElementById('flForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const input = document.getElementById('flInput');
+  const q = input.value.trim();
+  if (!q) return;
+  flAdd(q, true);
+  lastChatText = q;
+  input.value = '';
+  flReply(q);
+});
 </script>
 </body>
 </html>
